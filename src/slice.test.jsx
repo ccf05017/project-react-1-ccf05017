@@ -6,6 +6,18 @@ import reducer, {
 import categoriesFixture from '../fixtures/categories';
 
 describe('reducer', () => {
+  context('when the application first loaded', () => {
+    const initialState = {
+      categories: [],
+    };
+
+    it('returns the initialStates', () => {
+      const state = reducer(undefined, { type: 'action' });
+
+      expect(state).toEqual(initialState);
+    });
+  });
+
   describe('getInitialState', () => {
     it('can get initial states', () => {
       const initialState = {
