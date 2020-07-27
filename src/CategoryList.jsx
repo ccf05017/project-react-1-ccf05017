@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function HomePage({ categories, onMouseOver }) {
+export default function CategoryList({ categories, onMouseOver }) {
   return (
     <>
       <h1>YenTopper</h1>

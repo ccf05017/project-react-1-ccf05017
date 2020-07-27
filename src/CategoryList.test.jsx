@@ -2,7 +2,7 @@ import React from 'react';
 
 import { render, fireEvent } from '@testing-library/react';
 
-import HomePage from './HomePage';
+import HomePage from './CategoryList';
 
 import categoriesFixture from '../fixtures/categories';
 

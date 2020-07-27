@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { selectCategory } from './slice';
 
-import HomePage from './HomePage';
+import HomePage from './CategoryList';
 
 export default function HomePageContainer() {
   const dispatch = useDispatch();
