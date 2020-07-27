@@ -44,14 +44,14 @@ describe('reducer', () => {
   describe('setSelectedCategory', () => {
     it('can select the category', () => {
       const initialState = {
-        category: null,
+        selectedCategory: null,
       };
 
       const selectCategory = categoriesFixture[1];
 
       const state = reducer(initialState, setSelectedCategory(selectCategory));
 
-      expect(state.category).toEqual(selectCategory);
+      expect(state.selectedCategory).toEqual(selectCategory);
     });
   });
 });

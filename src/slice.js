@@ -15,11 +15,19 @@ const { actions, reducer } = createSlice({
         categories,
       };
     },
+
+    setSelectedCategory(state, { payload: selectedCategory }) {
+      return {
+        ...state,
+        selectedCategory,
+      };
+    },
   },
 });
 
 export const {
   setCategories,
+  setSelectedCategory,
 } = actions;
 
 export function getInitialState() {
