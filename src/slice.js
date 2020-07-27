@@ -30,7 +30,7 @@ export const {
   selectCategory,
 } = actions;
 
-export function getInitialState() {
+export function loadInitialState() {
   return async (dispatch) => {
     const categories = await fetchCategories();
 

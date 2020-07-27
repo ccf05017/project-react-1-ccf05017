@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 
 import reducer, {
-  getInitialState,
+  loadInitialState,
   setCategories,
   selectCategory,
 } from './slice';
@@ -44,6 +44,7 @@ describe('reducer', () => {
   describe('selectCategory', () => {
     it('can select the category', () => {
       const initialState = {
+        categories: categoriesFixture,
         selectedCategory: null,
       };
 
@@ -59,13 +60,13 @@ describe('reducer', () => {
 describe('async actions', () => {
   let store;
 
-  describe('getInitialState', () => {
+  describe('loadInitialState', () => {
     beforeEach(() => {
       store = mockStore({});
     });
 
     it('can get initial states', async () => {
-      await store.dispatch(getInitialState());
+      await store.dispatch(loadInitialState());
 
       const actions = store.getActions();
 
