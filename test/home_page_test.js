@@ -1,4 +1,4 @@
-Feature('Home');
+Feature('HomePage');
 
 const categories = ['생일', '육아', '여행', '결혼'];
 
