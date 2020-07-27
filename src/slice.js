@@ -8,13 +8,6 @@ const { actions, reducer } = createSlice({
     categories: [],
   },
   reducers: {
-    getInitialState(state) {
-      return {
-        ...state,
-        categories: categoriesFixture,
-        // TODO: API 콜로 데이터를 가져오도록 변경 필요
-      };
-    },
     setCategories(state, { payload: categories }) {
       return {
         ...state,
@@ -25,8 +18,15 @@ const { actions, reducer } = createSlice({
 });
 
 export const {
-  getInitialState,
   setCategories,
 } = actions;
+
+export function getInitialState() {
+  return async (dispatch) => {
+    const categories = categoriesFixture;
+
+    dispatch(setCategories(categories));
+  };
+}
 
 export default reducer;

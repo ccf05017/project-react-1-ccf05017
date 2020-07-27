@@ -28,9 +28,7 @@ describe('App', () => {
       <App />
     ));
 
-    expect(dispatch).toBeCalledWith({
-      type: 'application/getInitialState',
-    });
+    expect(dispatch).toBeCalled();
     expect(container).toHaveTextContent('YenTopper');
   });
 });
