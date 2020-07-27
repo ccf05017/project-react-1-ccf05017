@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import HomePageContainer from './HomePageContainer';
 
@@ -11,10 +11,16 @@ import categoriesFixture from '../fixtures/categories';
 jest.mock('react-redux');
 
 describe('HomePageContainer', () => {
+  const dispatch = jest.fn();
+
   beforeEach(() => {
     useSelector.mockImplementation((selector) => selector({
       categories: categoriesFixture,
     }));
+
+    useDispatch.mockImplementation(() => dispatch);
+
+    dispatch.mockClear();
   });
 
   it('renders the HomePage', () => {
@@ -23,5 +29,25 @@ describe('HomePageContainer', () => {
     ));
 
     expect(container).toHaveTextContent('YenTopper');
+  });
+
+  context('when mouse over on category list', () => {
+    it('select the category', () => {
+      const targetCategoryIndex = 0;
+      const categoryName = categoriesFixture[targetCategoryIndex].name;
+
+      const { getByText } = render((
+        <HomePageContainer />
+      ));
+
+      fireEvent.mouseOver(getByText(categoryName));
+
+      expect(dispatch).toBeCalledWith({
+        type: 'application/setSelectedCategory',
+        payload: {
+          selectedCategory: categoriesFixture[targetCategoryIndex],
+        },
+      });
+    });
   });
 });
