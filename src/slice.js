@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { fetchCategories } from '../services/api';
+import categories from '../fixtures/categories';
 
 const { actions, reducer } = createSlice({
   name: 'application',
@@ -16,10 +17,10 @@ const { actions, reducer } = createSlice({
       };
     },
 
-    selectCategory(state, { payload: selectedCategory }) {
+    selectCategory(state, { payload: categoryId }) {
       return {
         ...state,
-        selectedCategory,
+        selectedCategory: categories.find((category) => category.id === categoryId),
       };
     },
   },

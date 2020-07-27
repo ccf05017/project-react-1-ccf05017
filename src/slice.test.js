@@ -41,7 +41,7 @@ describe('reducer', () => {
     });
   });
 
-  describe('setSelectedCategory', () => {
+  describe('selectCategory', () => {
     it('can select the category', () => {
       const initialState = {
         selectedCategory: null,
@@ -49,9 +49,9 @@ describe('reducer', () => {
 
       const targetCategory = categoriesFixture[1];
 
-      const state = reducer(initialState, selectCategory(selectCategory));
+      const state = reducer(initialState, selectCategory(targetCategory.id));
 
-      expect(state.selectedCategory).toEqual(selectCategory);
+      expect(state.selectedCategory).toEqual(targetCategory);
     });
   });
 });
