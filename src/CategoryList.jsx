@@ -1,15 +1,6 @@
 import React from 'react';
 
-function CategoryItem({ category, onMouseOver }) {
-  return (
-    <li
-      onMouseOver={() => onMouseOver(category.id)}
-      onFocus={() => onMouseOver(category.id)}
-    >
-      {category.name}
-    </li>
-  );
-}
+import CategoryItem from './CategoryItem';
 
 export default function CategoryList({ categories, onMouseOver }) {
   return (

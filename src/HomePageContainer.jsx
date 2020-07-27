@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { selectCategory } from './slice';
 
-import HomePage from './CategoryList';
+import CategoryList from './CategoryList';
 
 export default function HomePageContainer() {
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ export default function HomePageContainer() {
   }
 
   return (
-    <HomePage
+    <CategoryList
       categories={categories}
       onMouseOver={handleMouseOver}
     />

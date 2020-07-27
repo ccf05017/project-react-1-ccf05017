@@ -2,16 +2,16 @@ import React from 'react';
 
 import { render, fireEvent } from '@testing-library/react';
 
-import HomePage from './CategoryList';
+import CategoryList from './CategoryList';
 
 import categoriesFixture from '../fixtures/categories';
 
-describe('HomePage', () => {
+describe('CategoryList', () => {
   const handleMouseOver = jest.fn();
 
-  function renderHomePage() {
+  function renderCategoryList() {
     return render((
-      <HomePage
+      <CategoryList
         categories={categoriesFixture}
         onMouseOver={handleMouseOver}
       />
@@ -19,13 +19,13 @@ describe('HomePage', () => {
   }
 
   it('renders the title', () => {
-    const { container } = renderHomePage();
+    const { container } = renderCategoryList();
 
     expect(container).toHaveTextContent('YenTopper');
   });
 
   it('renders the categories', () => {
-    const { container } = renderHomePage();
+    const { container } = renderCategoryList();
 
     categoriesFixture.forEach((category) => {
       expect(container).toHaveTextContent(category.name);
@@ -37,7 +37,7 @@ describe('HomePage', () => {
     const categoryName = categoriesFixture[categoryFixtureIndex].name;
     const categoryId = categoriesFixture[categoryFixtureIndex].id;
 
-    const { getByText } = renderHomePage();
+    const { getByText } = renderCategoryList();
 
     fireEvent.mouseOver(getByText(categoryName));
 
