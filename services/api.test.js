@@ -4,7 +4,9 @@ import categoriesFixture from '../fixtures/categories';
 
 describe('fetchCategories', () => {
   it('get categories info from api server', async () => {
-    global.fetch = jest.fn().mockReturnValue(categoriesFixture);
+    global.fetch = jest.fn().mockReturnValue({
+      async json() { return categoriesFixture; },
+    });
 
     const categories = await fetchCategories();
 
