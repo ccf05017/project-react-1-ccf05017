@@ -1,5 +1,6 @@
 import reducer, {
   getInitialState,
+  setCategories,
 } from './slice';
 
 import categoriesFixture from '../fixtures/categories';
