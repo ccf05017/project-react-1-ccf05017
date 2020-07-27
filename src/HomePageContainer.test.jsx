@@ -35,6 +35,7 @@ describe('HomePageContainer', () => {
     it('select the category', () => {
       const targetCategoryIndex = 0;
       const categoryName = categoriesFixture[targetCategoryIndex].name;
+      const categoryId = categoriesFixture[targetCategoryIndex].id;
 
       const { getByText } = render((
         <HomePageContainer />
@@ -44,9 +45,7 @@ describe('HomePageContainer', () => {
 
       expect(dispatch).toBeCalledWith({
         type: 'application/setSelectedCategory',
-        payload: {
-          selectedCategory: categoriesFixture[targetCategoryIndex],
-        },
+        payload: categoryId,
       });
     });
   });
