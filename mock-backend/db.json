@@ -1,0 +1,8 @@
+{
+  "products": [
+    { "id": 1, "type": "birthday", "title": "생일축하해", "price": 8000 },
+    { "id": 2, "type": "baby", "title": "첫돌축하", "price": 10000 },
+    { "id": 3, "type": "parent", "title": "환갑축하드려요", "price": 10000 },
+    { "id": 4, "type": "wedding", "title": "결혼축하해", "price": 8000 }
+  ]
+}
