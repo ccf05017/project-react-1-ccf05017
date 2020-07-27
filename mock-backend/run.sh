@@ -1,0 +1,1 @@
+docker run -d -p 8000:80 --name json-server -v $PWD/db.json:/data/db.json clue/json-server
