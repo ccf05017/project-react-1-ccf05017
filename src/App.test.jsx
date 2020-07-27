@@ -4,10 +4,12 @@ import { render } from '@testing-library/react';
 
 import App from './App';
 
-test('App', () => {
-  const { container } = render((
-    <App />
-  ));
+describe('App', () => {
+  it('renders the HomePage', () => {
+    const { container } = render((
+      <App />
+    ));
 
-  expect(container).toHaveTextContent('hello');
+    expect(container).toHaveTextContent('YenTopper');
+  });
 });
