@@ -18,6 +18,9 @@ export default function HomePageContainer() {
   }
 
   return (
-    <HomePage categories={categories} onMouseOver={handleMouseOver} />
+    <HomePage
+      categories={categories}
+      onMouseOver={handleMouseOver}
+    />
   );
 }
