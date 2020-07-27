@@ -6,7 +6,3 @@ export async function fetchCategories() {
 
   return categories;
 }
-
-export async function xxx() {
-  // TODO: delete
-}
