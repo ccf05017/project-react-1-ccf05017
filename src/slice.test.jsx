@@ -18,6 +18,7 @@ describe('reducer', () => {
   context('when the application first loaded', () => {
     const initialState = {
       categories: [],
+      selectedCategory: null,
     };
 
     it('returns the initialStates', () => {

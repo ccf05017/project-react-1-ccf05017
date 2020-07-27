@@ -6,6 +6,7 @@ const { actions, reducer } = createSlice({
   name: 'application',
   initialState: {
     categories: [],
+    selectedCategory: null,
   },
   reducers: {
     setCategories(state, { payload: categories }) {
