@@ -2,7 +2,13 @@
   "products": [
     { "id": 1, "type": "birthday", "title": "생일축하해", "price": 8000 },
     { "id": 2, "type": "baby", "title": "첫돌축하", "price": 10000 },
-    { "id": 3, "type": "parent", "title": "환갑축하드려요", "price": 10000 },
+    { "id": 3, "type": "travel", "title": "나는지금우한", "price": 10000 },
     { "id": 4, "type": "wedding", "title": "결혼축하해", "price": 8000 }
+  ],
+  "categories": [
+    { "id": 1, "type": "birthday", "name": "생일" },
+    { "id": 2, "type": "baby", "name": "육아" },
+    { "id": 3, "type": "travel", "name": "여행" },
+    { "id": 4, "type": "wedding", "name": "결혼" }
   ]
 }
