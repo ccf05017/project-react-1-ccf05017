@@ -9,7 +9,7 @@ import HomePageContainer from './HomePageContainer';
 export default function App() {
   const dispatch = useDispatch();
 
-  dispatch(getInitialState);
+  dispatch(getInitialState());
 
   return (
     <HomePageContainer />
