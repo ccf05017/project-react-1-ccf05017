@@ -5,7 +5,7 @@ import configureStore from 'redux-mock-store';
 import reducer, {
   getInitialState,
   setCategories,
-  setSelectedCategory,
+  selectCategory,
 } from './slice';
 
 import categoriesFixture from '../fixtures/categories';
@@ -47,9 +47,9 @@ describe('reducer', () => {
         selectedCategory: null,
       };
 
-      const selectCategory = categoriesFixture[1];
+      const targetCategory = categoriesFixture[1];
 
-      const state = reducer(initialState, setSelectedCategory(selectCategory));
+      const state = reducer(initialState, selectCategory(selectCategory));
 
       expect(state.selectedCategory).toEqual(selectCategory);
     });

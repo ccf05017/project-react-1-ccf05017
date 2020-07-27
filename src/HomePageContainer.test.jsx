@@ -44,7 +44,7 @@ describe('HomePageContainer', () => {
       fireEvent.mouseOver(getByText(categoryName));
 
       expect(dispatch).toBeCalledWith({
-        type: 'application/setSelectedCategory',
+        type: 'application/selectCategory',
         payload: categoryId,
       });
     });

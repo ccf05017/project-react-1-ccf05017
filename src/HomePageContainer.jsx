@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setSelectedCategory } from './slice';
+import { selectCategory } from './slice';
 
 import HomePage from './HomePage';
 
@@ -14,7 +14,7 @@ export default function HomePageContainer() {
   }));
 
   function handleMouseOver(categoryId) {
-    dispatch(setSelectedCategory(categoryId));
+    dispatch(selectCategory(categoryId));
   }
 
   return (

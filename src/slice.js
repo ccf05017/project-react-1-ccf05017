@@ -16,7 +16,7 @@ const { actions, reducer } = createSlice({
       };
     },
 
-    setSelectedCategory(state, { payload: selectedCategory }) {
+    selectCategory(state, { payload: selectedCategory }) {
       return {
         ...state,
         selectedCategory,
@@ -27,7 +27,7 @@ const { actions, reducer } = createSlice({
 
 export const {
   setCategories,
-  setSelectedCategory,
+  selectCategory,
 } = actions;
 
 export function getInitialState() {
