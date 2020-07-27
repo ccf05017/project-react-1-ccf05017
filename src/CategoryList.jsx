@@ -1,18 +1,27 @@
 import React from 'react';
 
+function CategoryItem({ category, onMouseOver }) {
+  return (
+    <li
+      onMouseOver={() => onMouseOver(category.id)}
+      onFocus={() => onMouseOver(category.id)}
+    >
+      {category.name}
+    </li>
+  );
+}
+
 export default function CategoryList({ categories, onMouseOver }) {
   return (
     <>
       <h1>YenTopper</h1>
       <ul>
         {categories.map((category) => (
-          <li
+          <CategoryItem
             key={category.id}
-            onMouseOver={() => onMouseOver(category.id)}
-            onFocus={() => onMouseOver(category.id)}
-          >
-            {category.name}
-          </li>
+            category={category}
+            onMouseOver={onMouseOver}
+          />
         ))}
       </ul>
     </>
