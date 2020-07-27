@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { render } from '@testing-library/react';
 
@@ -11,10 +11,16 @@ import App from './App';
 jest.mock('react-redux');
 
 describe('App', () => {
+  const dispatch = jest.fn();
+
   beforeEach(() => {
     useSelector.mockImplementation((selector) => selector({
       categories: categoriesFixture,
     }));
+
+    useDispatch.mockImplementation(() => dispatch);
+
+    dispatch.mockClear();
   });
 
   it('renders the HomePage', () => {
@@ -22,6 +28,9 @@ describe('App', () => {
       <App />
     ));
 
+    expect(dispatch).toBeCalledWith({
+      type: 'application/getInitialState',
+    });
     expect(container).toHaveTextContent('YenTopper');
   });
 });
