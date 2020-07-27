@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import categoriesFixture from '../fixtures/categories';
+import { fetchCategories } from '../services/api';
 
 const { actions, reducer } = createSlice({
   name: 'application',
@@ -23,7 +23,7 @@ export const {
 
 export function getInitialState() {
   return async (dispatch) => {
-    const categories = categoriesFixture;
+    const categories = await fetchCategories();
 
     dispatch(setCategories(categories));
   };
