@@ -19,7 +19,7 @@ exports.config = {
   },
   bootstrap: null,
   mocha: {},
-  name: 'assignment-7-1',
+  name: 'project-1',
   plugins: {
     retryFailedStep: {
       enabled: true,

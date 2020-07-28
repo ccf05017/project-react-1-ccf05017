@@ -12,10 +12,12 @@ jest.mock('react-redux');
 
 describe('HomePageContainer', () => {
   const dispatch = jest.fn();
+  const selectedCategoryIndex = 1;
 
   beforeEach(() => {
     useSelector.mockImplementation((selector) => selector({
       categories: categoriesFixture,
+      selectedCategory: categoriesFixture[selectedCategoryIndex],
     }));
 
     useDispatch.mockImplementation(() => dispatch);

@@ -9,7 +9,7 @@ export default function CategoryItemContainer({ category, onMouseOver }) {
     selectedCategory: state.selectedCategory,
   }));
 
-  const isSelected = selectedCategory.id === category.id;
+  const isSelected = (selectedCategory && selectedCategory.id) === category.id;
 
   return (
     <>

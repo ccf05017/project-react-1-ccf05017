@@ -6,7 +6,7 @@ Scenario('원하는 카테고리에 마우스를 갖다 대면, (O) 표기가 �
   I.amOnPage('/');
 
   categories.forEach((category) => {
-    I.moveCursorTo(category);
+    I.moveMouseOver(`${category}`);
 
     I.see(`${category}(O)`);
   });
