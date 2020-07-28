@@ -1,7 +1,12 @@
 import React from 'react';
 
-export default function CategoryItemContainer() {
-  return (
+import CategoryItem from './CategoryItem';
 
+export default function CategoryItemContainer({ category, onMouseOver }) {
+  return (
+    <CategoryItem
+      category={category}
+      onMouseOver={onMouseOver}
+    />
   );
 }

@@ -13,21 +13,31 @@ jest.mock('react-redux');
 describe('CategoryItemContainer', () => {
   const renderedCategoryIndex = 0;
   const selectedCategoryIndex = 1;
-  const renderedCategoryName = categoriesFixture[renderedCategoryIndex].name;
+  const renderedCategory = categoriesFixture[renderedCategoryIndex];
+  const selectedCategory = categoriesFixture[selectedCategoryIndex];
+
+  const handleMouseOver = jest.fn();
 
   beforeEach(() => {
     useSelector.mockImplementation((selector) => selector({
-      selectedCategory: categoriesFixture[selectedCategoryIndex],
+      selectedCategory,
     }));
   });
 
+  function renderCategoryItemContainer() {
+    return render((
+      <CategoryItemContainer
+        category={renderedCategory}
+        onMouseOver={handleMouseOver}
+      />
+    ));
+  }
+
   context('without selected', () => {
     it('renders the normal item', () => {
-      const { container } = render((
-        <CategoryItemContainer />
-      ));
+      const { container } = renderCategoryItemContainer();
 
-      expect(container).toHaveTextContent(renderedCategoryName);
+      expect(container).toHaveTextContent(renderedCategory.name);
     });
   });
 });
