@@ -9,6 +9,7 @@ import reducer, {
 } from './slice';
 
 import categoriesFixture from '../fixtures/categories';
+import productsFixture from '../fixtures/products';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
@@ -54,6 +55,18 @@ describe('reducer', () => {
       const state = reducer(initialState, selectCategory(targetCategory.id));
 
       expect(state.selectedCategory).toEqual(targetCategory);
+    });
+  });
+
+  describe('setProducts', () => {
+    it('can set product list', () => {
+      const initialState = {
+        products: [],
+      };
+
+      const state = reducer(initialState, setProducts(productsFixture));
+
+      expect(state.products).toEqual(productsFixture);
     });
   });
 });
