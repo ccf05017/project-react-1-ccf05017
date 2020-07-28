@@ -10,6 +10,8 @@ describe('CategoryItem', () => {
   const handleMouseOver = jest.fn();
 
   const categoryFixtureIndex = 0;
+  const categoryName = categoriesFixture[categoryFixtureIndex].name;
+  const categoryId = categoriesFixture[categoryFixtureIndex].id;
 
   function renderHomePage() {
     return render((
@@ -21,11 +23,9 @@ describe('CategoryItem', () => {
   }
 
   it('listens the mouse over event on categories', () => {
-    const categoryName = categoriesFixture[categoryFixtureIndex].name;
-    const categoryId = categoriesFixture[categoryFixtureIndex].id;
-
     const { getByText } = renderHomePage();
 
+    fireEvent.focus(getByText(categoryName));
     fireEvent.mouseOver(getByText(categoryName));
 
     expect(handleMouseOver).toBeCalledWith(categoryId);
