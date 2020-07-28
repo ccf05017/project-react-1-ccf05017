@@ -1,0 +1,32 @@
+Feature('ProductList');
+
+const categories = [
+  { index: 1, name: '생일' },
+  { index: 2, name: '육아' },
+  { index: 3, name: '여행' },
+  { index: 4, name: '결혼' },
+];
+
+const products = [
+  { index: 1, title: '생일축하해', price: 8000 },
+  { index: 2, title: '첫돌축하', price: 10000 },
+  { index: 3, title: '나는지금우한', price: 10000 },
+  { index: 4, title: '결혼축하해', price: 8000 },
+];
+
+function getMatchedProduct(category) {
+  return products.find(
+    (product) => product.index === category.index,
+  );
+}
+
+Scenario('카테고리 별로 상품 목록을 확인 할 수 있다.', (I) => {
+  I.amOnPage('/');
+
+  categories.forEach((category) => {
+    I.moveCursorTo(locate('ul li').at(category.index));
+
+    I.see(getMatchedProduct(category).title);
+    I.see(getMatchedProduct(category).price);
+  });
+});
