@@ -23,12 +23,20 @@ const { actions, reducer } = createSlice({
         selectedCategory: state.categories.find((category) => category.id === categoryId),
       };
     },
+
+    setProducts(state, { payload: products }) {
+      return {
+        ...state,
+        products,
+      };
+    },
   },
 });
 
 export const {
   setCategories,
   selectCategory,
+  setProducts,
 } = actions;
 
 export function loadInitialState() {
