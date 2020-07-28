@@ -7,3 +7,11 @@ export async function fetchCategories() {
 
   return data;
 }
+
+export async function fetchProducts() {
+  const url = `${API_SERVER}/products`;
+  const response = await fetch(url);
+  const data = await response.json();
+
+  return data;
+}
