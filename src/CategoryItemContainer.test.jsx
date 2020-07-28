@@ -11,9 +11,9 @@ import categoriesFixture from '../fixtures/categories';
 jest.mock('react-redux');
 
 describe('CategoryItemContainer', () => {
-  const renderedCategoryIndex = 0;
+  const notSelectedCategoryIndex = 0;
   const selectedCategoryIndex = 1;
-  const renderedCategory = categoriesFixture[renderedCategoryIndex];
+  const notSelectedCategory = categoriesFixture[notSelectedCategoryIndex];
   const selectedCategory = categoriesFixture[selectedCategoryIndex];
 
   const handleMouseOver = jest.fn();
@@ -24,10 +24,10 @@ describe('CategoryItemContainer', () => {
     }));
   });
 
-  function renderCategoryItemContainer() {
+  function renderCategoryItemContainer(category) {
     return render((
       <CategoryItemContainer
-        category={renderedCategory}
+        category={category}
         onMouseOver={handleMouseOver}
       />
     ));
@@ -35,9 +35,17 @@ describe('CategoryItemContainer', () => {
 
   context('without selected', () => {
     it('renders the normal item', () => {
-      const { container } = renderCategoryItemContainer();
+      const { container } = renderCategoryItemContainer(notSelectedCategory);
 
-      expect(container).toHaveTextContent(renderedCategory.name);
+      expect(container).toHaveTextContent(notSelectedCategory.name);
+    });
+  });
+
+  context('with selected', () => {
+    it('renders the selected item', () => {
+      const { container } = renderCategoryItemContainer(selectedCategory);
+
+      expect(container).toHaveTextContent(`${selectedCategory.name}(O)`);
     });
   });
 });
