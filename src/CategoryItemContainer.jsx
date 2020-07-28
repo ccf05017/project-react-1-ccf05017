@@ -16,8 +16,8 @@ export default function CategoryItemContainer({ category, onMouseOver }) {
       <CategoryItem
         category={category}
         onMouseOver={onMouseOver}
+        isSelected={isSelected}
       />
-      {isSelected && '(O)'}
     </>
   );
 }
