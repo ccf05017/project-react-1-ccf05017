@@ -1,10 +1,18 @@
 import React from 'react';
 
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { selectCategory } from './slice';
 
 import CategoryItem from './CategoryItem';
 
-export default function CategoryItemContainer({ category, onMouseOver }) {
+export default function CategoryItemContainer({ category }) {
+  const dispatch = useDispatch();
+
+  function handleMouseOver(categoryId) {
+    dispatch(selectCategory(categoryId));
+  }
+
   const { selectedCategory } = useSelector((state) => ({
     selectedCategory: state.selectedCategory,
   }));
@@ -15,7 +23,7 @@ export default function CategoryItemContainer({ category, onMouseOver }) {
     <>
       <CategoryItem
         category={category}
-        onMouseOver={onMouseOver}
+        onMouseOver={handleMouseOver}
         isSelected={isSelected}
       />
     </>

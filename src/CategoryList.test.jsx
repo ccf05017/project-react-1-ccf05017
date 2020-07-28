@@ -25,7 +25,6 @@ describe('CategoryList', () => {
     return render((
       <CategoryList
         categories={categoriesFixture}
-        onMouseOver={handleMouseOver}
       />
     ));
   }
@@ -42,17 +41,5 @@ describe('CategoryList', () => {
     categoriesFixture.forEach((category) => {
       expect(container).toHaveTextContent(category.name);
     });
-  });
-
-  it('listens the mouse over event on categories', () => {
-    const categoryFixtureIndex = 0;
-    const categoryName = categoriesFixture[categoryFixtureIndex].name;
-    const categoryId = categoriesFixture[categoryFixtureIndex].id;
-
-    const { getByText } = renderCategoryList();
-
-    fireEvent.mouseOver(getByText(categoryName));
-
-    expect(handleMouseOver).toBeCalledWith(categoryId);
   });
 });

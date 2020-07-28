@@ -2,7 +2,7 @@ import React from 'react';
 
 import CategoryItemContainer from './CategoryItemContainer';
 
-export default function CategoryList({ categories, onMouseOver }) {
+export default function CategoryList({ categories }) {
   return (
     <>
       <h1>YenTopper</h1>
@@ -11,7 +11,6 @@ export default function CategoryList({ categories, onMouseOver }) {
           <CategoryItemContainer
             key={category.id}
             category={category}
-            onMouseOver={onMouseOver}
           />
         ))}
       </ul>
