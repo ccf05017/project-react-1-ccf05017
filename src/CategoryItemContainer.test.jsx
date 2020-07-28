@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 
 import CategoryItemContainer from './CategoryItemContainer';
 
@@ -18,10 +18,16 @@ describe('CategoryItemContainer', () => {
 
   const handleMouseOver = jest.fn();
 
+  const dispatch = jest.fn();
+
   beforeEach(() => {
+    dispatch.mockClear();
+
     useSelector.mockImplementation((selector) => selector({
       selectedCategory,
     }));
+
+    useDispatch.mockImplementation(() => dispatch);
   });
 
   function renderCategoryItemContainer(category) {
@@ -46,6 +52,17 @@ describe('CategoryItemContainer', () => {
       const { container } = renderCategoryItemContainer(selectedCategory);
 
       expect(container).toHaveTextContent(`${selectedCategory.name}(O)`);
+    });
+
+    it('select the category', () => {
+      const { getByText } = renderCategoryItemContainer(selectedCategory);
+
+      fireEvent.mouseOver(getByText(`${selectedCategory.name}(O)`));
+
+      expect(dispatch).toBeCalledWith({
+        type: 'application/selectCategory',
+        payload: selectedCategory.id,
+      });
     });
   });
 });

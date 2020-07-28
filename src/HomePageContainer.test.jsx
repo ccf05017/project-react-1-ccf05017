@@ -32,23 +32,4 @@ describe('HomePageContainer', () => {
 
     expect(container).toHaveTextContent('YenTopper');
   });
-
-  context('when mouse over on category list', () => {
-    it('select the category', () => {
-      const targetCategoryIndex = 0;
-      const categoryName = categoriesFixture[targetCategoryIndex].name;
-      const categoryId = categoriesFixture[targetCategoryIndex].id;
-
-      const { getByText } = render((
-        <HomePageContainer />
-      ));
-
-      fireEvent.mouseOver(getByText(categoryName));
-
-      expect(dispatch).toBeCalledWith({
-        type: 'application/selectCategory',
-        payload: categoryId,
-      });
-    });
-  });
 });
