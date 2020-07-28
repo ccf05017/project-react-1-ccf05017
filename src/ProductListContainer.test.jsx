@@ -8,6 +8,8 @@ import ProductListContainer from './ProductListContainer';
 
 import productsFixture from '../fixtures/products';
 
+jest.mock('react-redux');
+
 describe('ProductListContainer', () => {
   beforeEach(() => {
     useSelector.mockImplementation((selector) => selector({
@@ -15,12 +17,14 @@ describe('ProductListContainer', () => {
     }));
   });
 
-  const { container } = render((
-    <ProductListContainer />
-  ));
+  it('renders the products', () => {
+    const { container } = render((
+      <ProductListContainer />
+    ));
 
-  productsFixture.forEach((productFixture) => {
-    expect(container).toHaveTextContent(productFixture.title);
-    expect(container).toHaveTextContent(productFixture.price);
+    productsFixture.forEach((productFixture) => {
+      expect(container).toHaveTextContent(productFixture.title);
+      expect(container).toHaveTextContent(productFixture.price);
+    });
   });
 });
