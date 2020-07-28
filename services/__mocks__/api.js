@@ -1,9 +1,10 @@
 import categoriesFixture from '../../fixtures/categories';
+import productsFixture from '../../fixtures/products';
 
 export async function fetchCategories() {
   return categoriesFixture;
 }
 
-export async function xxx() {
-  return null;
+export async function fetchProducts() {
+  return productsFixture;
 }
