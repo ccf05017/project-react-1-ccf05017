@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 import { useSelector } from 'react-redux';
 
@@ -11,8 +11,6 @@ import categoriesFixture from '../fixtures/categories';
 jest.mock('react-redux');
 
 describe('CategoryList', () => {
-  const handleMouseOver = jest.fn();
-
   beforeEach(() => {
     const selectedCategoryIndex = 1;
 
