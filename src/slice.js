@@ -7,6 +7,7 @@ const { actions, reducer } = createSlice({
   initialState: {
     categories: [],
     selectedCategory: null,
+    products: [],
   },
   reducers: {
     setCategories(state, { payload: categories }) {

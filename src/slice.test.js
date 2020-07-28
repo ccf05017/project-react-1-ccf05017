@@ -20,6 +20,7 @@ describe('reducer', () => {
     const initialState = {
       categories: [],
       selectedCategory: null,
+      products: [],
     };
 
     it('returns the initialStates', () => {
