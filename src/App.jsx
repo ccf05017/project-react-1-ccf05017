@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import { loadInitialState } from './slice';
 
-import HomePageContainer from './HomePageContainer';
+import CategoryListContainer from './CategoryListContainer';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -12,6 +12,6 @@ export default function App() {
   dispatch(loadInitialState());
 
   return (
-    <HomePageContainer />
+    <CategoryListContainer />
   );
 }

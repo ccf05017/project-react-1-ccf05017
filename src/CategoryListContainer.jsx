@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 import CategoryList from './CategoryList';
 
-export default function HomePageContainer() {
+export default function CategoryListContainer() {
   const { categories } = useSelector((state) => ({
     categories: state.categories,
   }));

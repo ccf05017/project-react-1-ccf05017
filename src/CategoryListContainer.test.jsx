@@ -1,16 +1,16 @@
 import React from 'react';
 
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import HomePageContainer from './HomePageContainer';
+import CategoryListContainer from './CategoryListContainer';
 
 import categoriesFixture from '../fixtures/categories';
 
 jest.mock('react-redux');
 
-describe('HomePageContainer', () => {
+describe('CategoryListContainer', () => {
   const dispatch = jest.fn();
   const selectedCategoryIndex = 1;
 
@@ -25,9 +25,9 @@ describe('HomePageContainer', () => {
     dispatch.mockClear();
   });
 
-  it('renders the HomePage', () => {
+  it('renders the CategoryListContainer', () => {
     const { container } = render((
-      <HomePageContainer />
+      <CategoryListContainer />
     ));
 
     expect(container).toHaveTextContent('YenTopper');

@@ -13,7 +13,7 @@ describe('CategoryItem', () => {
   const categoryName = categoriesFixture[categoryFixtureIndex].name;
   const categoryId = categoriesFixture[categoryFixtureIndex].id;
 
-  function renderHomePage() {
+  function renderCategoryItem() {
     return render((
       <CategoryItem
         category={categoriesFixture[categoryFixtureIndex]}
@@ -23,7 +23,7 @@ describe('CategoryItem', () => {
   }
 
   it('listens the mouse over event on categories', () => {
-    const { getByText } = renderHomePage();
+    const { getByText } = renderCategoryItem();
 
     fireEvent.focus(getByText(categoryName));
     fireEvent.mouseOver(getByText(categoryName));
