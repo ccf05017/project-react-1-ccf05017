@@ -1,4 +1,10 @@
-export default [
+const birthdayProductsFixture = [
+  {
+    id: 1, typeId: 1, title: '생일축하해', price: 8000,
+  },
+];
+
+const productsFixture = [
   {
     id: 1, typeId: 1, title: '생일축하해', price: 8000,
   },
@@ -12,3 +18,7 @@ export default [
     id: 4, typeId: 4, title: '결혼축하해', price: 8000,
   },
 ];
+
+export { birthdayProductsFixture };
+
+export default productsFixture;
