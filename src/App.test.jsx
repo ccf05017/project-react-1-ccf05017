@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { render } from '@testing-library/react';
 
 import categoriesFixture from '../fixtures/categories';
+import productsFixture from '../fixtures/products';
 
 import App from './App';
 
@@ -18,6 +19,7 @@ describe('App', () => {
     useSelector.mockImplementation((selector) => selector({
       categories: categoriesFixture,
       selectedCategory: categoriesFixture[selectedCategoryIndex],
+      products: productsFixture,
     }));
 
     useDispatch.mockImplementation(() => dispatch);
