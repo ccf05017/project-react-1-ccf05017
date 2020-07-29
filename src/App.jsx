@@ -4,6 +4,9 @@ import HomepageContainer from './HomepageContainer';
 
 export default function App() {
   return (
-    <HomepageContainer />
+    <>
+      <h1>YenTopper</h1>
+      <HomepageContainer />
+    </>
   );
 }
