@@ -4,39 +4,35 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { render } from '@testing-library/react';
 
+import HomepageContainer from './HomepageContainer';
+
 import categoriesFixture, {
   selectedCategoryFixture,
 } from '../fixtures/categories';
-
 import productsFixture from '../fixtures/products';
-
-import App from './App';
 
 jest.mock('react-redux');
 
-describe('App', () => {
+describe('HomepageContainer', () => {
   const dispatch = jest.fn();
 
   beforeEach(() => {
-    useSelector.mockImplementation((selector) => selector({
-      categories: categoriesFixture,
-      selectedCategory: selectedCategoryFixture,
-      products: productsFixture,
-    }));
+    dispatch.mockClear();
 
     useDispatch.mockImplementation(() => dispatch);
 
-    dispatch.mockClear();
+    useSelector.mockImplementation((selector) => selector({
+      selectedCategory: selectedCategoryFixture,
+      categories: categoriesFixture,
+      products: productsFixture,
+    }));
   });
 
-  it('renders the HomePage', () => {
-    const categoryHeader = '카테고리';
-
-    const { container } = render((
-      <App />
+  it('loads initial data', () => {
+    render((
+      <HomepageContainer />
     ));
 
     expect(dispatch).toBeCalled();
-    expect(container).toHaveTextContent(categoryHeader);
   });
 });
