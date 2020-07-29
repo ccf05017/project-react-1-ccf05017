@@ -28,7 +28,7 @@ describe('Homepage', () => {
     });
 
     it('renders the homepage with filtered products', () => {
-      const categoryListHeader = 'YenTopper';
+      const categoryListHeader = '카테고리';
       const notSelectedProduct = productsFixture[1];
 
       const { container } = render((
@@ -56,7 +56,7 @@ describe('Homepage', () => {
     });
 
     it('renders the homepage with whole products', () => {
-      const categoryListHeader = 'YenTopper';
+      const categoryListHeader = '카테고리';
 
       const { container } = render((
         <Homepage />

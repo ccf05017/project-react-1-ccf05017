@@ -28,11 +28,13 @@ describe('App', () => {
   });
 
   it('renders the HomePage', () => {
+    const categoryHeader = '카테고리';
+
     const { container } = render((
       <App />
     ));
 
     expect(dispatch).toBeCalled();
-    expect(container).toHaveTextContent('YenTopper');
+    expect(container).toHaveTextContent(categoryHeader);
   });
 });

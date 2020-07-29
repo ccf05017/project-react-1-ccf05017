@@ -5,7 +5,7 @@ import CategoryItemContainer from './CategoryItemContainer';
 export default function CategoryList({ categories }) {
   return (
     <>
-      <h1>YenTopper</h1>
+      <h2>카테고리</h2>
       <ul>
         {categories.map((category) => (
           <CategoryItemContainer

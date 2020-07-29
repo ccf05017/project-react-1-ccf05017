@@ -27,10 +27,12 @@ describe('CategoryList', () => {
     ));
   }
 
-  it('renders the title', () => {
+  it('renders the category title', () => {
+    const categoryTitle = '카테고리';
+
     const { container } = renderCategoryList();
 
-    expect(container).toHaveTextContent('YenTopper');
+    expect(container).toHaveTextContent(categoryTitle);
   });
 
   it('renders the categories', () => {
