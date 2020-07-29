@@ -18,26 +18,56 @@ describe('Homepage', () => {
     (product) => selectedCategory.id === product.typeId,
   );
 
-  beforeEach(() => {
-    useSelector.mockImplementation((selector) => selector({
-      selectedCategory,
-      products: productsFixture,
-      categories: categoriesFixture,
-    }));
+  context('with selected category', () => {
+    beforeEach(() => {
+      useSelector.mockImplementation((selector) => selector({
+        selectedCategory,
+        products: productsFixture,
+        categories: categoriesFixture,
+      }));
+    });
+
+    it('renders the homepage with filtered products', () => {
+      const categoryListHeader = 'YenTopper';
+      const notSelectedProduct = productsFixture[1];
+
+      const { container } = render((
+        <Homepage />
+      ));
+
+      expect(container).toHaveTextContent(categoryListHeader);
+
+      selectedProductList.forEach((selectedProduct) => {
+        expect(container).toHaveTextContent(selectedProduct.title);
+        expect(container).toHaveTextContent(selectedProduct.price);
+        expect(container).not.toHaveTextContent(notSelectedProduct.title);
+        expect(container).not.toHaveTextContent(notSelectedProduct.price);
+      });
+    });
   });
 
-  it('renders the homepage', () => {
-    const categoryListHeader = 'YenTopper';
+  context('without selected category', () => {
+    beforeEach(() => {
+      useSelector.mockImplementation((selector) => selector({
+        selectedCategory: null,
+        products: productsFixture,
+        categories: categoriesFixture,
+      }));
+    });
 
-    const { container } = render((
-      <Homepage />
-    ));
+    it('renders the homepage with whole products', () => {
+      const categoryListHeader = 'YenTopper';
 
-    expect(container).toHaveTextContent(categoryListHeader);
+      const { container } = render((
+        <Homepage />
+      ));
 
-    selectedProductList.forEach((selectedProduct) => {
-      expect(container).toHaveTextContent(selectedProduct.title);
-      expect(container).toHaveTextContent(selectedProduct.price);
+      expect(container).toHaveTextContent(categoryListHeader);
+
+      productsFixture.forEach((product) => {
+        expect(container).toHaveTextContent(product.title);
+        expect(container).toHaveTextContent(product.price);
+      });
     });
   });
 });
