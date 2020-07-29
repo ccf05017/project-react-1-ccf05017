@@ -20,6 +20,12 @@ function getMatchedProduct(category) {
   );
 }
 
+Scenario('상품 목록 제목을 볼 수 있다.', (I) => {
+  I.amOnPage('/');
+
+  I.see('상품');
+});
+
 Scenario('카테고리 별로 상품 목록을 확인 할 수 있다.', (I) => {
   I.amOnPage('/');
 

@@ -7,6 +7,12 @@ const categories = [
   { index: 4, name: '결혼' },
 ];
 
+Scenario('카테고리 제목을 볼 수 있다.', (I) => {
+  I.amOnPage('/');
+
+  I.see('카테고리');
+});
+
 Scenario('원하는 카테고리에 마우스를 갖다 대면, (O) 표기가 된다.', (I) => {
   I.amOnPage('/');
 
