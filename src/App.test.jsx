@@ -4,7 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { render } from '@testing-library/react';
 
-import categoriesFixture from '../fixtures/categories';
+import categoriesFixture, {
+  selectedCategoryFixture,
+} from '../fixtures/categories';
+
 import productsFixture from '../fixtures/products';
 
 import App from './App';
@@ -13,12 +16,11 @@ jest.mock('react-redux');
 
 describe('App', () => {
   const dispatch = jest.fn();
-  const selectedCategoryIndex = 1;
 
   beforeEach(() => {
     useSelector.mockImplementation((selector) => selector({
       categories: categoriesFixture,
-      selectedCategory: categoriesFixture[selectedCategoryIndex],
+      selectedCategory: selectedCategoryFixture,
       products: productsFixture,
     }));
 

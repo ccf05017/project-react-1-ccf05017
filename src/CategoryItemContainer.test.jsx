@@ -6,16 +6,14 @@ import { render, fireEvent } from '@testing-library/react';
 
 import CategoryItemContainer from './CategoryItemContainer';
 
-import categoriesFixture from '../fixtures/categories';
+import {
+  selectedCategoryFixture,
+  notSelectedCategoryFixture,
+} from '../fixtures/categories';
 
 jest.mock('react-redux');
 
 describe('CategoryItemContainer', () => {
-  const notSelectedCategoryIndex = 0;
-  const selectedCategoryIndex = 1;
-  const notSelectedCategory = categoriesFixture[notSelectedCategoryIndex];
-  const selectedCategory = categoriesFixture[selectedCategoryIndex];
-
   const handleMouseOver = jest.fn();
 
   const dispatch = jest.fn();
@@ -24,7 +22,7 @@ describe('CategoryItemContainer', () => {
     dispatch.mockClear();
 
     useSelector.mockImplementation((selector) => selector({
-      selectedCategory,
+      selectedCategory: selectedCategoryFixture,
     }));
 
     useDispatch.mockImplementation(() => dispatch);
@@ -41,27 +39,27 @@ describe('CategoryItemContainer', () => {
 
   context('without selected', () => {
     it('renders the normal item', () => {
-      const { container } = renderCategoryItemContainer(notSelectedCategory);
+      const { container } = renderCategoryItemContainer(notSelectedCategoryFixture);
 
-      expect(container).toHaveTextContent(notSelectedCategory.name);
+      expect(container).toHaveTextContent(notSelectedCategoryFixture.name);
     });
   });
 
   context('with selected', () => {
     it('renders the selected item', () => {
-      const { container } = renderCategoryItemContainer(selectedCategory);
+      const { container } = renderCategoryItemContainer(selectedCategoryFixture);
 
-      expect(container).toHaveTextContent(`${selectedCategory.name}(O)`);
+      expect(container).toHaveTextContent(`${selectedCategoryFixture.name}(O)`);
     });
 
     it('select the category', () => {
-      const { getByText } = renderCategoryItemContainer(selectedCategory);
+      const { getByText } = renderCategoryItemContainer(selectedCategoryFixture);
 
-      fireEvent.mouseOver(getByText(`${selectedCategory.name}(O)`));
+      fireEvent.mouseOver(getByText(`${selectedCategoryFixture.name}(O)`));
 
       expect(dispatch).toBeCalledWith({
         type: 'application/selectCategory',
-        payload: selectedCategory.id,
+        payload: selectedCategoryFixture.id,
       });
     });
   });

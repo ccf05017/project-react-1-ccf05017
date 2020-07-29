@@ -6,18 +6,19 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import CategoryListContainer from './CategoryListContainer';
 
-import categoriesFixture from '../fixtures/categories';
+import categoriesFixture, {
+  selectedCategoryFixture,
+} from '../fixtures/categories';
 
 jest.mock('react-redux');
 
 describe('CategoryListContainer', () => {
   const dispatch = jest.fn();
-  const selectedCategoryIndex = 1;
 
   beforeEach(() => {
     useSelector.mockImplementation((selector) => selector({
       categories: categoriesFixture,
-      selectedCategory: categoriesFixture[selectedCategoryIndex],
+      selectedCategory: selectedCategoryFixture,
     }));
 
     useDispatch.mockImplementation(() => dispatch);

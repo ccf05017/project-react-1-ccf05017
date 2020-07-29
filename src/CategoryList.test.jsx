@@ -6,16 +6,16 @@ import { useSelector } from 'react-redux';
 
 import CategoryList from './CategoryList';
 
-import categoriesFixture from '../fixtures/categories';
+import categoriesFixture, {
+  selectedCategoryFixture,
+} from '../fixtures/categories';
 
 jest.mock('react-redux');
 
 describe('CategoryList', () => {
   beforeEach(() => {
-    const selectedCategoryIndex = 1;
-
     useSelector.mockImplementation((selector) => selector({
-      selectedCategory: categoriesFixture[selectedCategoryIndex],
+      selectedCategory: selectedCategoryFixture,
     }));
   });
 

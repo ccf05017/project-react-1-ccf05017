@@ -7,7 +7,10 @@ import { useSelector } from 'react-redux';
 import ProductListContainer from './ProductListContainer';
 
 import productsFixture from '../fixtures/products';
-import categoriesFixture from '../fixtures/categories';
+import categoriesFixture, {
+  selectedCategoryFixture,
+  notSelectedCategoryFixture,
+} from '../fixtures/categories';
 
 jest.mock('react-redux');
 
@@ -33,15 +36,10 @@ describe('ProductListContainer', () => {
   });
 
   context('with selected category', () => {
-    const selectedCategoryIndex = 0;
-    const notSelectedCategoryIndex = 1;
-    const selectedCategory = categoriesFixture[selectedCategoryIndex];
-    const notSelectedCategory = categoriesFixture[notSelectedCategoryIndex];
-
     beforeEach(() => {
       useSelector.mockImplementation((selector) => selector({
         products: productsFixture,
-        selectedCategory,
+        selectedCategory: selectedCategoryFixture,
       }));
     });
 
@@ -56,11 +54,11 @@ describe('ProductListContainer', () => {
         <ProductListContainer />
       ));
 
-      expect(container).toHaveTextContent(getFilteredProduct(selectedCategory).title);
-      expect(container).toHaveTextContent(getFilteredProduct(selectedCategory).price);
+      expect(container).toHaveTextContent(getFilteredProduct(selectedCategoryFixture).title);
+      expect(container).toHaveTextContent(getFilteredProduct(selectedCategoryFixture).price);
 
-      expect(container).not.toHaveTextContent(getFilteredProduct(notSelectedCategory).title);
-      expect(container).not.toHaveTextContent(getFilteredProduct(notSelectedCategory).price);
+      expect(container).not.toHaveTextContent(getFilteredProduct(notSelectedCategoryFixture).title);
+      expect(container).not.toHaveTextContent(getFilteredProduct(notSelectedCategoryFixture).price);
     });
   });
 });

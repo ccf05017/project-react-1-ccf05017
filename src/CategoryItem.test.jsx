@@ -4,19 +4,17 @@ import { render, fireEvent } from '@testing-library/react';
 
 import CategoryItem from './CategoryItem';
 
-import categoriesFixture from '../fixtures/categories';
+import {
+  selectedCategoryFixture,
+} from '../fixtures/categories';
 
 describe('CategoryItem', () => {
   const handleMouseOver = jest.fn();
 
-  const categoryFixtureIndex = 0;
-  const categoryName = categoriesFixture[categoryFixtureIndex].name;
-  const categoryId = categoriesFixture[categoryFixtureIndex].id;
-
   function renderCategoryItem() {
     return render((
       <CategoryItem
-        category={categoriesFixture[categoryFixtureIndex]}
+        category={selectedCategoryFixture}
         onMouseOver={handleMouseOver}
       />
     ));
@@ -25,9 +23,9 @@ describe('CategoryItem', () => {
   it('listens the mouse over event on categories', () => {
     const { getByText } = renderCategoryItem();
 
-    fireEvent.focus(getByText(categoryName));
-    fireEvent.mouseOver(getByText(categoryName));
+    fireEvent.focus(getByText(selectedCategoryFixture.name));
+    fireEvent.mouseOver(getByText(selectedCategoryFixture.name));
 
-    expect(handleMouseOver).toBeCalledWith(categoryId);
+    expect(handleMouseOver).toBeCalledWith(selectedCategoryFixture.id);
   });
 });

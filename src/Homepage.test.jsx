@@ -6,17 +6,19 @@ import { render } from '@testing-library/react';
 
 import Homepage from './Homepage';
 
-import categoriesFixture from '../fixtures/categories';
-import productsFixture from '../fixtures/products';
+import categoriesFixture, {
+  selectedCategoryFixture,
+  notSelectedCategoryFixture,
+} from '../fixtures/categories';
+import productsFixture, {
+  filteredProductsFixture,
+} from '../fixtures/products';
 
 jest.mock('react-redux');
 
 describe('Homepage', () => {
-  const selectedCategoryIndex = 0;
-  const selectedCategory = categoriesFixture[selectedCategoryIndex];
-  const selectedProductList = productsFixture.filter(
-    (product) => selectedCategory.id === product.typeId,
-  );
+  const selectedCategory = selectedCategoryFixture;
+  const selectedProductList = filteredProductsFixture;
 
   context('with selected category', () => {
     beforeEach(() => {
@@ -29,7 +31,7 @@ describe('Homepage', () => {
 
     it('renders the homepage with filtered products', () => {
       const categoryListHeader = '카테고리';
-      const notSelectedProduct = productsFixture[1];
+      const notSelectedProduct = notSelectedCategoryFixture;
 
       const { container } = render((
         <Homepage />

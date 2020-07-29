@@ -6,7 +6,9 @@ import { render } from '@testing-library/react';
 
 import HomepageContainer from './HomepageContainer';
 
-import categoriesFixture from '../fixtures/categories';
+import categoriesFixture, {
+  selectedCategoryFixture,
+} from '../fixtures/categories';
 import productsFixture from '../fixtures/products';
 
 jest.mock('react-redux');
@@ -20,7 +22,7 @@ describe('HomepageContainer', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      selectedCategory: categoriesFixture[0],
+      selectedCategory: selectedCategoryFixture,
       categories: categoriesFixture,
       products: productsFixture,
     }));

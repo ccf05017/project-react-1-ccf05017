@@ -1,4 +1,4 @@
-const birthdayProductsFixture = [
+const filteredProductsFixture = [
   {
     id: 1, typeId: 1, title: '생일축하해', price: 8000,
   },
@@ -19,6 +19,6 @@ const productsFixture = [
   },
 ];
 
-export { birthdayProductsFixture };
+export { filteredProductsFixture };
 
 export default productsFixture;
