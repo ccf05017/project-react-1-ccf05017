@@ -1,17 +1,9 @@
 import React from 'react';
 
-import { useDispatch } from 'react-redux';
-
-import { loadInitialState } from './slice';
-
-import Homepage from './Homepage';
+import HomepageContainer from './HomepageContainer';
 
 export default function App() {
-  const dispatch = useDispatch();
-
-  dispatch(loadInitialState());
-
   return (
-    <Homepage />
+    <HomepageContainer />
   );
 }
