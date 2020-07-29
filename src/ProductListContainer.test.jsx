@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import ProductListContainer from './ProductListContainer';
 
 import productsFixture from '../fixtures/products';
-import categoriesFixture, {
+import {
   selectedCategoryFixture,
   notSelectedCategoryFixture,
 } from '../fixtures/categories';
