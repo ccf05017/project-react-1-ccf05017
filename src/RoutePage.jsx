@@ -7,12 +7,7 @@ import {
 } from 'react-router-dom';
 
 import HomepageContainer from './HomepageContainer';
-
-function ProductDetail() {
-  return (
-    <h2>상품 상세</h2>
-  );
-}
+import ProductDetail from './ProductDetail';
 
 export default function RoutePage() {
   return (
