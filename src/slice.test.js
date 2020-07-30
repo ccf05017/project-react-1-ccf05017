@@ -115,7 +115,7 @@ describe('async actions', () => {
 
       const actions = store.getActions();
 
-      expect(actions[0]).toEqual(setCategories(productFixture));
+      expect(actions[0]).toEqual(setProduct(productFixture));
     });
   });
 });

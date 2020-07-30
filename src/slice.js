@@ -66,7 +66,7 @@ export function loadProductDetail(productId) {
   return async (dispatch) => {
     const product = await fetchProduct(productId);
 
-    dispatch(setCategories(product));
+    dispatch(setProduct(product));
   };
 }
 
