@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { MemoryRouter } from 'react-router-dom';
+
 import { useDispatch, useSelector } from 'react-redux';
 
 import { render } from '@testing-library/react';
@@ -30,7 +32,9 @@ describe('HomepageContainer', () => {
 
   it('loads initial data', () => {
     render((
-      <HomepageContainer />
+      <MemoryRouter>
+        <HomepageContainer />
+      </MemoryRouter>
     ));
 
     expect(dispatch).toBeCalled();

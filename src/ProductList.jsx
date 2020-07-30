@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 import ProductItem from './ProductItem';
 
 export default function ProductList({ products }) {
@@ -8,10 +10,14 @@ export default function ProductList({ products }) {
       <h2>상품</h2>
       <ul>
         {products.map((product) => (
-          <ProductItem
+          <Link
             key={product.id}
-            product={product}
-          />
+            to={`/products/${product.id}`}
+          >
+            <ProductItem
+              product={product}
+            />
+          </Link>
         ))}
       </ul>
     </>

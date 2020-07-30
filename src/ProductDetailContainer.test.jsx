@@ -4,6 +4,8 @@ import { render } from '@testing-library/react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import { MemoryRouter } from 'react-router-dom';
+
 import ProductDetailContainer from './ProductDetailContainer';
 
 import { productFixture } from '../fixtures/products';
@@ -24,15 +26,21 @@ describe('ProductDetailContainer', () => {
     useDispatch.mockImplementation(() => dispatch);
   });
 
+  function renderProductDetailContainer() {
+    return render((
+      <MemoryRouter>
+        <ProductDetailContainer params={productFixture.id} />
+      </MemoryRouter>
+    ));
+  }
+
   context('with product detail info', () => {
     useSelector.mockClear();
 
     given('product', () => (productFixture));
 
     it('renders the product detail', () => {
-      const { container } = render((
-        <ProductDetailContainer params={productFixture.id} />
-      ));
+      const { container } = renderProductDetailContainer();
 
       expect(container).toHaveTextContent(productDetailTitle);
       expect(container).toHaveTextContent(`상품명: ${productFixture.title}`);
@@ -40,9 +48,7 @@ describe('ProductDetailContainer', () => {
     });
 
     it('loads the product detail', () => {
-      render((
-        <ProductDetailContainer params={productFixture.id} />
-      ));
+      renderProductDetailContainer();
 
       expect(dispatch).toBeCalled();
     });
@@ -54,9 +60,7 @@ describe('ProductDetailContainer', () => {
     given('product', () => (null));
 
     it('renders the loading comment', () => {
-      const { container } = render((
-        <ProductDetailContainer params={productFixture.id} />
-      ));
+      const { container } = renderProductDetailContainer();
 
       expect(container).toHaveTextContent('로딩중입니다');
     });
