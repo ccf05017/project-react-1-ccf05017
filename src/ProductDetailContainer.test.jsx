@@ -18,27 +18,47 @@ describe('ProductDetailContainer', () => {
     dispatch.mockClear();
 
     useSelector.mockImplementation((selector) => selector({
-      product: productFixture,
+      product: given.product,
     }));
 
     useDispatch.mockImplementation(() => dispatch);
   });
 
-  it('renders the product detail', () => {
-    const { container } = render((
-      <ProductDetailContainer params={productFixture.id} />
-    ));
+  context('with product detail info', () => {
+    useSelector.mockClear();
 
-    expect(container).toHaveTextContent(productDetailTitle);
-    expect(container).toHaveTextContent(`상품명: ${productFixture.title}`);
-    expect(container).toHaveTextContent(`가격: ${productFixture.price}`);
+    given('product', () => (productFixture));
+
+    it('renders the product detail', () => {
+      const { container } = render((
+        <ProductDetailContainer params={productFixture.id} />
+      ));
+
+      expect(container).toHaveTextContent(productDetailTitle);
+      expect(container).toHaveTextContent(`상품명: ${productFixture.title}`);
+      expect(container).toHaveTextContent(`가격: ${productFixture.price}`);
+    });
+
+    it('loads the product detail', () => {
+      render((
+        <ProductDetailContainer params={productFixture.id} />
+      ));
+
+      expect(dispatch).toBeCalled();
+    });
   });
 
-  it('loads the product detail', () => {
-    render((
-      <ProductDetailContainer params={productFixture.id} />
-    ));
+  context('without product detail info', () => {
+    useSelector.mockClear();
 
-    expect(dispatch).toBeCalled();
+    given('product', () => (null));
+
+    it('renders the loading comment', () => {
+      const { container } = render((
+        <ProductDetailContainer params={productFixture.id} />
+      ));
+
+      expect(container).toHaveTextContent('로딩중입니다');
+    });
   });
 });
