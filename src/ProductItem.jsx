@@ -1,10 +1,12 @@
 import React from 'react';
 
-export default function ProductItem({ product }) {
+export default function ProductItem({ product, handleClick }) {
   return (
     <li>
-      <p>{product.title}</p>
-      <p>{product.price}</p>
+      <a href="" onClick={handleClick}>
+        <p>{product.title}</p>
+        <p>{product.price}</p>
+      </a>
     </li>
   );
 }
