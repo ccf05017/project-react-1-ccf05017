@@ -4,8 +4,6 @@ import { render } from '@testing-library/react';
 
 import { useSelector } from 'react-redux';
 
-import { MemoryRouter } from 'react-router-dom';
-
 import ProductListContainer from './ProductListContainer';
 
 import productsFixture from '../fixtures/products';
@@ -19,9 +17,7 @@ jest.mock('react-redux');
 describe('ProductListContainer', () => {
   function renderProductListContainer() {
     return render((
-      <MemoryRouter>
-        <ProductListContainer />
-      </MemoryRouter>
+      <ProductListContainer />
     ));
   }
 
