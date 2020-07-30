@@ -4,15 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { loadProductDetail } from './slice';
 
-export default function ProductDetail({ productId }) {
-  const dispatch = useDispatch();
-
-  dispatch(loadProductDetail(productId));
-
-  const { product } = useSelector((state) => ({
-    product: state.product,
-  }));
-
+function ProductDetial({ product }) {
   return (
     <>
       <h2>상품 상세</h2>
@@ -29,5 +21,19 @@ export default function ProductDetail({ productId }) {
         원
       </p>
     </>
+  );
+}
+
+export default function ProductDetailContainer({ productId }) {
+  const dispatch = useDispatch();
+
+  dispatch(loadProductDetail(productId));
+
+  const { product } = useSelector((state) => ({
+    product: state.product,
+  }));
+
+  return (
+    <ProductDetial product={product} />
   );
 }
