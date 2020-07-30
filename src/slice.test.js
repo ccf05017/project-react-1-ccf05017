@@ -105,13 +105,13 @@ describe('async actions', () => {
     });
   });
 
-  describe('loadProductDetail', async () => {
+  describe('loadProductDetail', () => {
     beforeEach(() => {
       store = mockStore({});
     });
 
     it('can get product detail', async () => {
-      await store.loadProductDetail(productFixture.id);
+      await store.dispatch(loadProductDetail(productFixture.id));
 
       const actions = store.getActions();
 

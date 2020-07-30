@@ -2,6 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { fetchCategories, fetchProducts } from '../services/api';
 
+import { productFixture } from '../fixtures/products';
+
 const { actions, reducer } = createSlice({
   name: 'application',
   initialState: {
@@ -59,9 +61,9 @@ export function loadInitialState() {
 }
 
 export function loadProductDetail(productId) {
-  // TODO: 상품 상세 정보를 가져와서 리덕스 상태에 등록하도록 기능 구현 필요
-  // 1. setProduct
-  // 2. 상태 업데이트 하기 위한 자료 받아오기
+  return async (dispatch) => {
+    dispatch(setCategories(productFixture));
+  };
 }
 
 export default reducer;
