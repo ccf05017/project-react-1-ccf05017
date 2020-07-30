@@ -1,8 +1,14 @@
 import React from 'react';
 
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-export default function ProductDetail() {
+import { loadProductDetail } from './slice';
+
+export default function ProductDetail({ productId }) {
+  const dispatch = useDispatch();
+
+  dispatch(loadProductDetail(productId));
+
   const { product } = useSelector((state) => ({
     product: state.product,
   }));

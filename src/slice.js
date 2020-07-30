@@ -49,4 +49,8 @@ export function loadInitialState() {
   };
 }
 
+export function loadProductDetail(productId) {
+  // TODO: 상품 상세 정보를 가져와서 리덕스 상태에 등록하도록 기능 구현 필요
+}
+
 export default reducer;
