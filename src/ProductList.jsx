@@ -5,17 +5,6 @@ import { useHistory } from 'react-router-dom';
 import ProductItem from './ProductItem';
 
 export default function ProductList({ products }) {
-  const history = useHistory();
-
-  function handleClick(product) {
-    const url = `/products/${product.id}`;
-
-    return (event) => {
-      event.preventDefault();
-      history.push(url);
-    };
-  }
-
   return (
     <>
       <h2>상품</h2>
@@ -24,7 +13,6 @@ export default function ProductList({ products }) {
           <ProductItem
             key={product.id}
             product={product}
-            handleClick={handleClick(product)}
           />
         ))}
       </ul>
