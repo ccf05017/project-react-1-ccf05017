@@ -1,3 +1,5 @@
+const assert = require('assert');
+
 Feature('ProductList');
 
 const categories = [
@@ -35,4 +37,18 @@ Scenario('카테고리 별로 상품 목록을 확인 할 수 있다.', (I) => {
     I.see(getMatchedProduct(category).title);
     I.see(getMatchedProduct(category).price);
   });
+});
+
+Scenario('상품 상세 페이지로 이동할 수 있다.', async (I) => {
+  I.amOnPage('/');
+
+  const birthdayCategory = categories.find((category) => category.name === '생일');
+
+  I.moveCursorTo(locate('ul li').at(birthdayCategory.index));
+  I.see(birthdayCategory.name);
+
+  I.click(birthdayCategory.name);
+  const url = await I.grabCurrentUrl();
+
+  assert.equal(/\/products\/\d/.test(url), true);
 });
