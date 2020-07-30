@@ -16,6 +16,10 @@ export async function fetchProducts() {
   return data;
 }
 
-export async function fetchProduct() {
-  // TODO
+export async function fetchProduct(productId) {
+  const url = `${API_SERVER}/products/${productId}`;
+  const response = await fetch(url);
+  const data = await response.json();
+
+  return data;
 }
