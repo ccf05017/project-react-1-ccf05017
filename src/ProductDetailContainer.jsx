@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { useParams } from 'react-router-dom';
 
@@ -13,11 +13,19 @@ export default function ProductDetailContainer({ params }) {
 
   const dispatch = useDispatch();
 
-  dispatch(loadProductDetail(id));
+  useEffect(() => {
+    dispatch(loadProductDetail(id));
+  }, []);
 
   const { product } = useSelector((state) => ({
     product: state.product,
   }));
+
+  if (!product) {
+    return (
+      <p>로딩중입니다</p>
+    );
+  }
 
   return (
     <ProductDetail product={product} />
