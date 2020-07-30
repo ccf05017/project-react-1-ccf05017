@@ -26,7 +26,7 @@ describe('ProductDetailContainer', () => {
 
   it('renders the product detail', () => {
     const { container } = render((
-      <ProductDetailContainer productId={productFixture.id} />
+      <ProductDetailContainer params={productFixture.id} />
     ));
 
     expect(container).toHaveTextContent(productDetailTitle);
@@ -36,7 +36,7 @@ describe('ProductDetailContainer', () => {
 
   it('loads the product detail', () => {
     render((
-      <ProductDetailContainer productId={productFixture.id} />
+      <ProductDetailContainer params={productFixture.id} />
     ));
 
     expect(dispatch).toBeCalled();
