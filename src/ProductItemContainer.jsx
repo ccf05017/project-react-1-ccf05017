@@ -7,7 +7,8 @@ import ProductItem from './ProductItem';
 export default function ProductItemContainer({ product }) {
   const history = useHistory();
 
-  function handleClick() {
+  function handleClick(event) {
+    event.preventDefault();
     history.push(`/products/${product.id}`);
   }
 
