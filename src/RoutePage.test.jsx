@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { MemoryRouter } from 'react-router-dom';
 
@@ -19,12 +19,18 @@ describe('RoutePage', () => {
   const productTitle = '상품';
   const productDetailTitle = '상품 상세';
 
+  const dispatch = jest.fn();
+
   beforeEach(() => {
+    dispatch.mockClear();
+
     useSelector.mockImplementation((selector) => selector({
       selectedCategory: selectedCategoryFixture,
       products: productsFixture,
       categories: categoriesFixture,
     }));
+
+    useDispatch.mockImplementation(() => dispatch);
   });
 
   context('with path /', () => {
