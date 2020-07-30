@@ -1,15 +1,30 @@
 import React from 'react';
 
+import { useSelector } from 'react-redux';
+
 import { MemoryRouter } from 'react-router-dom';
 
 import { render } from '@testing-library/react';
 
 import RoutePage from './RoutePage';
 
+import productsFixture from '../fixtures/products';
+import categoriesFixture, { selectedCategoryFixture } from '../fixtures/categories';
+
+jest.mock('react-redux');
+
 describe('RoutePage', () => {
   const storeTitle = 'YenTopper';
   const categoryTitle = '카테고리';
   const productTitle = '상품';
+
+  beforeEach(() => {
+    useSelector.mockImplementation((selector) => selector({
+      selectedCategory: selectedCategoryFixture,
+      products: productsFixture,
+      categories: categoriesFixture,
+    }));
+  });
 
   context('with path /', () => {
     it('renders the homepage', () => {
