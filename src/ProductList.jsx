@@ -1,8 +1,6 @@
 import React from 'react';
 
-import { useHistory } from 'react-router-dom';
-
-import ProductItem from './ProductItem';
+import ProductItemContainer from './ProductItemContainer';
 
 export default function ProductList({ products }) {
   return (
@@ -10,7 +8,7 @@ export default function ProductList({ products }) {
       <h2>상품</h2>
       <ul>
         {products.map((product) => (
-          <ProductItem
+          <ProductItemContainer
             key={product.id}
             product={product}
           />
