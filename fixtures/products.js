@@ -4,6 +4,10 @@ const filteredProductsFixture = [
   },
 ];
 
+const productFixture = {
+  id: 1, typeId: 1, title: '생일축하해', price: 8000,
+};
+
 const productsFixture = [
   {
     id: 1, typeId: 1, title: '생일축하해', price: 8000,
@@ -19,6 +23,6 @@ const productsFixture = [
   },
 ];
 
-export { filteredProductsFixture };
+export { filteredProductsFixture, productFixture };
 
 export default productsFixture;

@@ -7,10 +7,12 @@ import reducer, {
   setCategories,
   selectCategory,
   setProducts,
+  setProduct,
+  loadProductDetail,
 } from './slice';
 
 import categoriesFixture from '../fixtures/categories';
-import productsFixture from '../fixtures/products';
+import productsFixture, { productFixture } from '../fixtures/products';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
@@ -23,6 +25,7 @@ describe('reducer', () => {
       categories: [],
       selectedCategory: null,
       products: [],
+      product: null,
     };
 
     it('returns the initialStates', () => {
@@ -70,6 +73,18 @@ describe('reducer', () => {
       expect(state.products).toEqual(productsFixture);
     });
   });
+
+  describe('setProduct', () => {
+    it('cat set product state', () => {
+      const initialState = {
+        product: null,
+      };
+
+      const state = reducer(initialState, setProduct(productFixture));
+
+      expect(state.product).toEqual(productFixture);
+    });
+  });
 });
 
 describe('async actions', () => {
@@ -87,6 +102,20 @@ describe('async actions', () => {
 
       expect(actions[0]).toEqual(setCategories(categoriesFixture));
       expect(actions[1]).toEqual(setProducts(productsFixture));
+    });
+  });
+
+  describe('loadProductDetail', () => {
+    beforeEach(() => {
+      store = mockStore({});
+    });
+
+    it('can get product detail', async () => {
+      await store.dispatch(loadProductDetail(productFixture.id));
+
+      const actions = store.getActions();
+
+      expect(actions[0]).toEqual(setProduct(productFixture));
     });
   });
 });

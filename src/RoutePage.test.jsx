@@ -8,7 +8,7 @@ import { render } from '@testing-library/react';
 
 import RoutePage from './RoutePage';
 
-import productsFixture from '../fixtures/products';
+import productsFixture, { productFixture } from '../fixtures/products';
 import categoriesFixture, { selectedCategoryFixture } from '../fixtures/categories';
 
 jest.mock('react-redux');
@@ -28,6 +28,7 @@ describe('RoutePage', () => {
       selectedCategory: selectedCategoryFixture,
       products: productsFixture,
       categories: categoriesFixture,
+      product: productFixture,
     }));
 
     useDispatch.mockImplementation(() => dispatch);

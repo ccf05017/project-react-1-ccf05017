@@ -1,6 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { fetchCategories, fetchProducts } from '../services/api';
+import {
+  fetchCategories,
+  fetchProducts,
+  fetchProduct,
+} from '../services/api';
 
 const { actions, reducer } = createSlice({
   name: 'application',
@@ -8,6 +12,7 @@ const { actions, reducer } = createSlice({
     categories: [],
     selectedCategory: null,
     products: [],
+    product: null,
   },
   reducers: {
     setCategories(state, { payload: categories }) {
@@ -30,6 +35,13 @@ const { actions, reducer } = createSlice({
         products,
       };
     },
+
+    setProduct(state, { payload: product }) {
+      return {
+        ...state,
+        product,
+      };
+    },
   },
 });
 
@@ -37,6 +49,7 @@ export const {
   setCategories,
   selectCategory,
   setProducts,
+  setProduct,
 } = actions;
 
 export function loadInitialState() {
@@ -46,6 +59,14 @@ export function loadInitialState() {
 
     dispatch(setCategories(categories));
     dispatch(setProducts(products));
+  };
+}
+
+export function loadProductDetail(productId) {
+  return async (dispatch) => {
+    const product = await fetchProduct(productId);
+
+    dispatch(setProduct(product));
   };
 }
 
