@@ -31,6 +31,13 @@ const { actions, reducer } = createSlice({
         products,
       };
     },
+
+    setProduct(state, { payload: product }) {
+      return {
+        ...state,
+        product,
+      };
+    },
   },
 });
 
@@ -38,6 +45,7 @@ export const {
   setCategories,
   selectCategory,
   setProducts,
+  setProduct,
 } = actions;
 
 export function loadInitialState() {

@@ -7,6 +7,7 @@ import reducer, {
   setCategories,
   selectCategory,
   setProducts,
+  setProduct,
 } from './slice';
 
 import categoriesFixture from '../fixtures/categories';
