@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 
 import HomepageContainer from './HomepageContainer';
-import ProductDetail from './ProductDetail';
+import ProductDetailContainer from './ProductDetailContainer';
 
 export default function RoutePage() {
   return (
@@ -19,7 +19,7 @@ export default function RoutePage() {
       </h1>
       <Switch>
         <Route exact path="/" component={HomepageContainer} />
-        <Route path="/products/:id" component={ProductDetail} />
+        <Route path="/products/:id" component={ProductDetailContainer} />
       </Switch>
     </>
   );

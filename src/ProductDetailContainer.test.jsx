@@ -4,13 +4,13 @@ import { render } from '@testing-library/react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import ProductDetail from './ProductDetail';
+import ProductDetailContainer from './ProductDetailContainer';
 
 import { productFixture } from '../fixtures/products';
 
 jest.mock('react-redux');
 
-describe('ProductDetail', () => {
+describe('ProductDetailContainer', () => {
   const productDetailTitle = '상품 상세';
   const dispatch = jest.fn();
 
@@ -26,7 +26,7 @@ describe('ProductDetail', () => {
 
   it('renders the product detail', () => {
     const { container } = render((
-      <ProductDetail productId={productFixture.id} />
+      <ProductDetailContainer productId={productFixture.id} />
     ));
 
     expect(container).toHaveTextContent(productDetailTitle);
@@ -36,7 +36,7 @@ describe('ProductDetail', () => {
 
   it('loads the product detail', () => {
     render((
-      <ProductDetail productId={productFixture.id} />
+      <ProductDetailContainer productId={productFixture.id} />
     ));
 
     expect(dispatch).toBeCalled();
