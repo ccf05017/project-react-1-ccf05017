@@ -21,13 +21,15 @@ describe('ProductListContainer', () => {
     ));
   }
 
+  beforeEach(() => {
+    useSelector.mockImplementation((selector) => selector({
+      products: productsFixture,
+      selectedCategory: given.selectedCategory,
+    }));
+  });
+
   context('without selected category', () => {
-    beforeEach(() => {
-      useSelector.mockImplementation((selector) => selector({
-        products: productsFixture,
-        selectedCategory: null,
-      }));
-    });
+    given('selectedCategory', () => null);
 
     it('renders the all products', () => {
       const { container } = renderProductListContainer();
@@ -40,12 +42,7 @@ describe('ProductListContainer', () => {
   });
 
   context('with selected category', () => {
-    beforeEach(() => {
-      useSelector.mockImplementation((selector) => selector({
-        products: productsFixture,
-        selectedCategory: selectedCategoryFixture,
-      }));
-    });
+    given('selectedCategory', () => selectedCategoryFixture);
 
     it('renders the products which is filtered by category', () => {
       function getFilteredProduct(category) {
