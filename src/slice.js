@@ -1,8 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { fetchCategories, fetchProducts } from '../services/api';
-
-import { productFixture } from '../fixtures/products';
+import {
+  fetchCategories,
+  fetchProducts,
+  fetchProduct,
+} from '../services/api';
 
 const { actions, reducer } = createSlice({
   name: 'application',
@@ -62,7 +64,9 @@ export function loadInitialState() {
 
 export function loadProductDetail(productId) {
   return async (dispatch) => {
-    dispatch(setCategories(productFixture));
+    const product = await fetchProduct(productId);
+
+    dispatch(setCategories(product));
   };
 }
 

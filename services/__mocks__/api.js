@@ -8,3 +8,7 @@ export async function fetchCategories() {
 export async function fetchProducts() {
   return productsFixture;
 }
+
+export async function fetchProduct(productId) {
+  return productsFixture.find((product) => product.id === productId);
+}

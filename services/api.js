@@ -15,3 +15,7 @@ export async function fetchProducts() {
 
   return data;
 }
+
+export async function fetchProduct() {
+  // TODO
+}
