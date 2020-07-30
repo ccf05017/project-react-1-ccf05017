@@ -1,6 +1,12 @@
 import React from 'react';
 
 export default function ProductDetail({ product }) {
+  if (product === null) {
+    return (
+      <p>로딩중입니다</p>
+    );
+  }
+
   return (
     <>
       <h2>상품 상세</h2>
