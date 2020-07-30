@@ -17,6 +17,7 @@ describe('RoutePage', () => {
   const storeTitle = 'YenTopper';
   const categoryTitle = '카테고리';
   const productTitle = '상품';
+  const productDetailTitle = '상품 상세';
 
   beforeEach(() => {
     useSelector.mockImplementation((selector) => selector({
@@ -37,6 +38,18 @@ describe('RoutePage', () => {
       expect(container).toHaveTextContent(storeTitle);
       expect(container).toHaveTextContent(categoryTitle);
       expect(container).toHaveTextContent(productTitle);
+    });
+  });
+
+  context('with path /products/1', () => {
+    it('renders the product detail page', () => {
+      const { container } = render((
+        <MemoryRouter initialEntries={['/products/1']}>
+          <RoutePage />
+        </MemoryRouter>
+      ));
+
+      expect(container).toHaveTextContent(productDetailTitle);
     });
   });
 });

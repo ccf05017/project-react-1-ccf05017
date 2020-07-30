@@ -8,6 +8,12 @@ import {
 
 import Homepage from './Homepage';
 
+function ProductDetail() {
+  return (
+    <h2>상품 상세</h2>
+  );
+}
+
 export default function RoutePage() {
   return (
     <>
@@ -17,7 +23,8 @@ export default function RoutePage() {
         </Link>
       </h1>
       <Switch>
-        <Route to="/" component={Homepage} />
+        <Route exact path="/" component={Homepage} />
+        <Route path="/products/:id" component={ProductDetail} />
       </Switch>
     </>
   );
