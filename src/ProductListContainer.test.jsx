@@ -4,6 +4,7 @@ import { render } from '@testing-library/react';
 
 import { useSelector } from 'react-redux';
 
+import { MemoryRouter } from 'react-router-dom';
 import ProductListContainer from './ProductListContainer';
 
 import productsFixture from '../fixtures/products';
@@ -15,6 +16,14 @@ import {
 jest.mock('react-redux');
 
 describe('ProductListContainer', () => {
+  function renderProductListContainer() {
+    return render((
+      <MemoryRouter>
+        <ProductListContainer />
+      </MemoryRouter>
+    ));
+  }
+
   context('without selected category', () => {
     beforeEach(() => {
       useSelector.mockImplementation((selector) => selector({
@@ -24,9 +33,7 @@ describe('ProductListContainer', () => {
     });
 
     it('renders the all products', () => {
-      const { container } = render((
-        <ProductListContainer />
-      ));
+      const { container } = renderProductListContainer();
 
       productsFixture.forEach((productFixture) => {
         expect(container).toHaveTextContent(productFixture.title);
@@ -50,9 +57,7 @@ describe('ProductListContainer', () => {
         );
       }
 
-      const { container } = render((
-        <ProductListContainer />
-      ));
+      const { container } = renderProductListContainer();
 
       expect(container).toHaveTextContent(getFilteredProduct(selectedCategoryFixture).title);
       expect(container).toHaveTextContent(getFilteredProduct(selectedCategoryFixture).price);

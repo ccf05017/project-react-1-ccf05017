@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 
 import { render } from '@testing-library/react';
 
+import { MemoryRouter } from 'react-router-dom';
 import Homepage from './Homepage';
 
 import categoriesFixture, {
@@ -20,6 +21,14 @@ describe('Homepage', () => {
   const selectedCategory = selectedCategoryFixture;
   const selectedProductList = filteredProductsFixture;
 
+  function renderHomepage() {
+    return render((
+      <MemoryRouter>
+        <Homepage />
+      </MemoryRouter>
+    ));
+  }
+
   context('with selected category', () => {
     beforeEach(() => {
       useSelector.mockImplementation((selector) => selector({
@@ -33,9 +42,7 @@ describe('Homepage', () => {
       const categoryListHeader = '카테고리';
       const notSelectedProduct = notSelectedCategoryFixture;
 
-      const { container } = render((
-        <Homepage />
-      ));
+      const { container } = renderHomepage();
 
       expect(container).toHaveTextContent(categoryListHeader);
 
@@ -60,9 +67,7 @@ describe('Homepage', () => {
     it('renders the homepage with whole products', () => {
       const categoryListHeader = '카테고리';
 
-      const { container } = render((
-        <Homepage />
-      ));
+      const { container } = renderHomepage();
 
       expect(container).toHaveTextContent(categoryListHeader);
 
