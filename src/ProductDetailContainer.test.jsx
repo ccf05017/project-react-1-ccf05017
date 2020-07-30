@@ -4,8 +4,6 @@ import { render } from '@testing-library/react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { MemoryRouter } from 'react-router-dom';
-
 import ProductDetailContainer from './ProductDetailContainer';
 
 import { productFixture } from '../fixtures/products';
@@ -28,9 +26,7 @@ describe('ProductDetailContainer', () => {
 
   function renderProductDetailContainer() {
     return render((
-      <MemoryRouter>
-        <ProductDetailContainer params={productFixture.id} />
-      </MemoryRouter>
+      <ProductDetailContainer params={productFixture.id} />
     ));
   }
 

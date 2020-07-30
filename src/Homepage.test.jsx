@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 
 import { render } from '@testing-library/react';
 
-import { MemoryRouter } from 'react-router-dom';
 import Homepage from './Homepage';
 
 import categoriesFixture, {
@@ -23,9 +22,7 @@ describe('Homepage', () => {
 
   function renderHomepage() {
     return render((
-      <MemoryRouter>
-        <Homepage />
-      </MemoryRouter>
+      <Homepage />
     ));
   }
 
