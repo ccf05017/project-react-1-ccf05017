@@ -8,6 +8,7 @@ import reducer, {
   selectCategory,
   setProducts,
   setProduct,
+  loadProductDetail,
 } from './slice';
 
 import categoriesFixture from '../fixtures/categories';
@@ -101,6 +102,20 @@ describe('async actions', () => {
 
       expect(actions[0]).toEqual(setCategories(categoriesFixture));
       expect(actions[1]).toEqual(setProducts(productsFixture));
+    });
+  });
+
+  describe('loadProductDetail', async () => {
+    beforeEach(() => {
+      store = mockStore({});
+    });
+
+    it('can get product detail', async () => {
+      await store.loadProductDetail(productFixture.id);
+
+      const actions = store.getActions();
+
+      expect(actions[0]).toEqual(setCategories(productFixture));
     });
   });
 });
