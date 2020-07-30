@@ -8,6 +8,7 @@ const { actions, reducer } = createSlice({
     categories: [],
     selectedCategory: null,
     products: [],
+    product: null,
   },
   reducers: {
     setCategories(state, { payload: categories }) {
@@ -51,6 +52,8 @@ export function loadInitialState() {
 
 export function loadProductDetail(productId) {
   // TODO: 상품 상세 정보를 가져와서 리덕스 상태에 등록하도록 기능 구현 필요
+  // 1. setProduct
+  // 2. 상태 업데이트 하기 위한 자료 받아오기
 }
 
 export default reducer;
