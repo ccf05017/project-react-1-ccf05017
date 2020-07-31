@@ -13,9 +13,9 @@ describe('OrderFormContainer', () => {
     useSelector.mockImplementation((selector) => selector({
       orderForm: {
         username: given.username,
-        phoneNumber: null,
+        phoneNumber: '',
         amount: 0,
-        address: null,
+        address: '',
       },
     }));
   });
@@ -26,21 +26,20 @@ describe('OrderFormContainer', () => {
     ));
   }
 
+  const orderForm = ['주문자 이름', '주문자 연락처', '주문수량', '배송지'];
   const username = '홍길동';
 
   context('without written info', () => {
     it('renders the order form template', () => {
-      given('username', () => null);
+      given('username', () => '');
 
-      const { container } = renderOrderFormContainer();
+      const { getByText, getByLabelText } = renderOrderFormContainer();
 
-      expect(container).toHaveTextContent('주문자 이름');
-      expect(container).toHaveTextContent('주문자 연락처');
-      expect(container).toHaveTextContent('주문수량');
-      expect(container).toHaveTextContent('배송지');
-      expect(container).toHaveTextContent('주문하기');
+      orderForm.forEach((input) => expect(getByLabelText(input)).not.toBeNull());
 
-      expect(container).not.toHaveTextContent(username);
+      expect(getByText('주문하기')).not.toBeNull();
+
+      expect(getByLabelText('주문자 이름').value).not.toBe(username);
     });
   });
 
@@ -48,15 +47,13 @@ describe('OrderFormContainer', () => {
     it('renders the order form template and value', () => {
       given('username', () => username);
 
-      const { container } = renderOrderFormContainer();
+      const { getByLabelText, getByText } = renderOrderFormContainer();
 
-      expect(container).toHaveTextContent('주문자 이름');
-      expect(container).toHaveTextContent('주문자 연락처');
-      expect(container).toHaveTextContent('주문수량');
-      expect(container).toHaveTextContent('배송지');
-      expect(container).toHaveTextContent('주문하기');
+      orderForm.forEach((input) => expect(getByLabelText(input)).not.toBeNull());
 
-      expect(container).toHaveTextContent(username);
+      expect(getByText('주문하기')).not.toBeNull();
+
+      expect(getByLabelText('주문자 이름').value).toBe(username);
     });
   });
 });
