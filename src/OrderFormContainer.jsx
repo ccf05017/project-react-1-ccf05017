@@ -21,19 +21,54 @@ export default function OrderFormContainer() {
     dispatch(changeOrderForm({ name, value }));
   }
 
+  function InputField({
+    label, name, value, onChange, type = 'text',
+  }) {
+    const id = `inputField-${name}`;
+
+    return (
+      <>
+        <label htmlFor={id}>{label}</label>
+        <input
+          type={type}
+          id={id}
+          name={name}
+          value={value}
+          onChange={onChange}
+        />
+      </>
+    );
+  }
+
   return (
     <>
-      <label htmlFor="username">주문자 이름</label>
-      <input type="text" id="username" name="username" value={username} onChange={handleChange} />
+      <InputField
+        label="주문자 이름"
+        name="username"
+        value={username}
+        onChange={handleChange}
+      />
 
-      <label htmlFor="phoneNumber">주문자 연락처</label>
-      <input type="text" id="phoneNumber" name="phoneNumber" value={phoneNumber} onChange={handleChange} />
+      <InputField
+        label="주문자 연락처"
+        name="phoneNumber"
+        value={phoneNumber}
+        onChange={handleChange}
+      />
 
-      <label htmlFor="amount">주문수량</label>
-      <input type="number" id="amount" name="amount" value={amount} onChange={handleChange} />
+      <InputField
+        label="주문수량"
+        name="amount"
+        value={amount}
+        onChange={handleChange}
+      />
 
-      <label htmlFor="address">배송지</label>
-      <input type="text" id="address" name="address" value={address} onChange={handleChange} />
+      <InputField
+        label="배송지"
+        name="address"
+        value={address}
+        onChange={handleChange}
+      />
 
       <button type="button">
         주문하기
