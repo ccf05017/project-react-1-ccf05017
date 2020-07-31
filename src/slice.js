@@ -13,6 +13,12 @@ const { actions, reducer } = createSlice({
     selectedCategory: null,
     products: [],
     product: null,
+    orderForm: {
+      username: '',
+      phoneNumber: '',
+      amount: 0,
+      address: '',
+    },
   },
   reducers: {
     setCategories(state, { payload: categories }) {

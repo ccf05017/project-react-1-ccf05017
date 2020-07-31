@@ -26,6 +26,12 @@ describe('reducer', () => {
       selectedCategory: null,
       products: [],
       product: null,
+      orderForm: {
+        username: '',
+        phoneNumber: '',
+        amount: 0,
+        address: '',
+      },
     };
 
     it('returns the initialStates', () => {
