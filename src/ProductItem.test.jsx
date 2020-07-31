@@ -13,7 +13,7 @@ describe('ProductItem', () => {
     const { getByText } = render((
       <ProductItem
         product={productFixture}
-        handleClick={handleClick}
+        onClick={handleClick}
       />
     ));
 
