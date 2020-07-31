@@ -20,6 +20,8 @@ describe('App', () => {
   const dispatch = jest.fn();
 
   beforeEach(() => {
+    dispatch.mockClear();
+
     useSelector.mockImplementation((selector) => selector({
       categories: categoriesFixture,
       selectedCategory: selectedCategoryFixture,
@@ -27,8 +29,6 @@ describe('App', () => {
     }));
 
     useDispatch.mockImplementation(() => dispatch);
-
-    dispatch.mockClear();
   });
 
   it('renders the HomePage', () => {
