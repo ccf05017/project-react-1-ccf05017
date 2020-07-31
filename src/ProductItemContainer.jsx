@@ -13,6 +13,9 @@ export default function ProductItemContainer({ product }) {
   }
 
   return (
-    <ProductItem product={product} handleClick={handleClick} />
+    <ProductItem
+      product={product}
+      onClick={handleClick}
+    />
   );
 }
