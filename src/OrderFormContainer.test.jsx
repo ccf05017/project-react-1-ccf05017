@@ -1,15 +1,19 @@
 import React from 'react';
 
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import OrderFormContainer from './OrderFormContainer';
 
 jest.mock('react-redux');
 
 describe('OrderFormContainer', () => {
+  const dispatch = jest.fn();
+
   beforeEach(() => {
+    dispatch.mockClear();
+
     useSelector.mockImplementation((selector) => selector({
       orderForm: {
         username: given.username,
@@ -18,6 +22,8 @@ describe('OrderFormContainer', () => {
         address: '',
       },
     }));
+
+    useDispatch.mockImplementation(() => dispatch);
   });
 
   function renderOrderFormContainer() {
@@ -54,6 +60,23 @@ describe('OrderFormContainer', () => {
       expect(getByText('주문하기')).not.toBeNull();
 
       expect(getByLabelText('주문자 이름').value).toBe(username);
+    });
+  });
+
+  it('listens the form value change event', () => {
+    given('username', () => '');
+
+    const { getByLabelText } = renderOrderFormContainer();
+
+    fireEvent.change(getByLabelText('주문자 이름'), {
+      target: { value: username },
+    });
+
+    expect(dispatch).toBeCalledWith({
+      type: 'application/changeOrderForm',
+      payload: {
+        username,
+      },
     });
   });
 });
