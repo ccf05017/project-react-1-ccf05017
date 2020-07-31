@@ -26,7 +26,7 @@ describe('ProductDetailContainer', () => {
 
   function renderProductDetailContainer() {
     return render((
-      <ProductDetailContainer params={productFixture.id} />
+      <ProductDetailContainer params={{ id: productFixture.id }} />
     ));
   }
 
