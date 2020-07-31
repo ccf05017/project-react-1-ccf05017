@@ -29,6 +29,12 @@ describe('RoutePage', () => {
       products: productsFixture,
       categories: categoriesFixture,
       product: productFixture,
+      orderForm: {
+        username: '',
+        phoneNumber: '',
+        amount: 0,
+        address: '',
+      },
     }));
 
     useDispatch.mockImplementation(() => dispatch);

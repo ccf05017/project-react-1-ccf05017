@@ -19,6 +19,12 @@ describe('ProductDetailContainer', () => {
 
     useSelector.mockImplementation((selector) => selector({
       product: given.product,
+      orderForm: {
+        username: '',
+        phoneNumber: '',
+        amount: 0,
+        address: '',
+      },
     }));
 
     useDispatch.mockImplementation(() => dispatch);
