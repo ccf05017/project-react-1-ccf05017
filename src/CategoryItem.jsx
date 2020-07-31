@@ -1,19 +1,14 @@
 import React from 'react';
 
 export default function CategoryItem({ category, onMouseOver, isSelected }) {
-  function renderSelect() {
-    if (isSelected) {
-      return `${category.name}(O)`;
-    }
-    return `${category.name}`;
-  }
+  const { id, name } = category;
 
   return (
     <li
-      onMouseOver={() => onMouseOver(category.id)}
-      onFocus={() => onMouseOver(category.id)}
+      onMouseOver={() => onMouseOver(id)}
+      onFocus={() => onMouseOver(id)}
     >
-      {renderSelect()}
+      {name + (isSelected ? '(O)' : '')}
     </li>
   );
 }
