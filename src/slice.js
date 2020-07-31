@@ -48,6 +48,16 @@ const { actions, reducer } = createSlice({
         product,
       };
     },
+
+    changeOrderForm(state, { payload: { name, value } }) {
+      return {
+        ...state,
+        orderForm: {
+          ...state.orderForm,
+          [name]: value,
+        },
+      };
+    },
   },
 });
 
@@ -56,6 +66,7 @@ export const {
   selectCategory,
   setProducts,
   setProduct,
+  changeOrderForm,
 } = actions;
 
 export function loadInitialState() {

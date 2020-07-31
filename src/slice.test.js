@@ -9,6 +9,7 @@ import reducer, {
   setProducts,
   setProduct,
   loadProductDetail,
+  changeOrderForm,
 } from './slice';
 
 import categoriesFixture from '../fixtures/categories';
@@ -89,6 +90,26 @@ describe('reducer', () => {
       const state = reducer(initialState, setProduct(productFixture));
 
       expect(state.product).toEqual(productFixture);
+    });
+  });
+
+  describe('changeOrderForm', () => {
+    it('can change OrderForm values', () => {
+      const name = 'username';
+      const value = '홍길동';
+
+      const initialState = {
+        orderForm: {
+          username: '',
+          phoneNumber: '',
+          amount: 0,
+          address: '',
+        },
+      };
+
+      const state = reducer(initialState, changeOrderForm({ name, value }));
+
+      expect(state.orderForm.username).toBe(value);
     });
   });
 });
