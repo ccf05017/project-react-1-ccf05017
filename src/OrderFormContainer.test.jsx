@@ -75,10 +75,8 @@ describe('OrderFormContainer', () => {
     expect(dispatch).toBeCalledWith({
       type: 'application/changeOrderForm',
       payload: {
-        username,
-        phoneNumber: '',
-        amount: 0,
-        address: '',
+        name: 'username',
+        value: username,
       },
     });
   });
