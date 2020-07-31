@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { changeOrderForm } from './slice';
 
+import InputField from './InputField';
+
 export default function OrderFormContainer() {
   const dispatch = useDispatch();
 
@@ -19,25 +21,6 @@ export default function OrderFormContainer() {
     const { target: { name, value } } = event;
 
     dispatch(changeOrderForm({ name, value }));
-  }
-
-  function InputField({
-    label, name, value, onChange, type = 'text',
-  }) {
-    const id = `inputField-${name}`;
-
-    return (
-      <>
-        <label htmlFor={id}>{label}</label>
-        <input
-          type={type}
-          id={id}
-          name={name}
-          value={value}
-          onChange={onChange}
-        />
-      </>
-    );
   }
 
   return (
