@@ -106,8 +106,16 @@ export function loadProductDetail(productId) {
 }
 
 export function orderProduct() {
-  return async (dispatch) => {
-    const orderResult = await requestOrder();
+  return async (dispatch, getState) => {
+    const {
+      product: { id }, orderForm: {
+        username, phoneNumber, amount, address,
+      },
+    } = getState();
+
+    const orderResult = await requestOrder({
+      id, username, phoneNumber, amount, address,
+    });
 
     dispatch(setOrderResult(orderResult));
   };

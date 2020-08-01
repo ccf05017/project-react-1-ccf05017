@@ -13,6 +13,14 @@ export async function fetchProduct(productId) {
   return productsFixture.find((product) => product.id === productId);
 }
 
-export async function requestOrder() {
-  return true;
+export async function requestOrder({
+  id, username, phoneNumber, amount, address,
+}) {
+  return (
+    id !== null
+    && username !== null
+    && phoneNumber !== null
+    && amount !== null
+    && address !== null
+  );
 }

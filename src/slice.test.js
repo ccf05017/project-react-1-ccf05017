@@ -172,7 +172,15 @@ describe('async actions', () => {
 
   describe('orderProduct', () => {
     beforeEach(() => {
-      store = mockStore({});
+      store = mockStore({
+        product: productFixture,
+        orderForm: {
+          username: '',
+          phoneNumber: '',
+          amount: 0,
+          address: '',
+        },
+      });
     });
 
     it('order the product and update order status', async () => {
