@@ -93,4 +93,16 @@ describe('OrderFormContainer', () => {
       expect(container).toHaveTextContent(orderSuccessMessage);
     });
   });
+
+  context('without order result', () => {
+    it("doesn't render the order result message", () => {
+      const orderSuccessMessage = '주문이 완료됐습니다.';
+
+      given('orderResult', () => null);
+
+      const { container } = renderOrderFormContainer();
+
+      expect(container).not.toHaveTextContent(orderSuccessMessage);
+    });
+  });
 });
