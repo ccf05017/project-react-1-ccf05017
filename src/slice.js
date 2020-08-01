@@ -59,6 +59,13 @@ const { actions, reducer } = createSlice({
         },
       };
     },
+
+    orderSuccess(state) {
+      return {
+        ...state,
+        orderResult: true,
+      };
+    },
   },
 });
 
@@ -68,6 +75,7 @@ export const {
   setProducts,
   setProduct,
   changeOrderForm,
+  orderSuccess,
 } = actions;
 
 export function loadInitialState() {

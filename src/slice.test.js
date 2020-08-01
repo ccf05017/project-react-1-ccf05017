@@ -10,6 +10,7 @@ import reducer, {
   setProduct,
   loadProductDetail,
   changeOrderForm,
+  orderSuccess,
 } from './slice';
 
 import categoriesFixture from '../fixtures/categories';
@@ -112,6 +113,16 @@ describe('reducer', () => {
 
       expect(state.orderForm.username).toBe(value);
     });
+  });
+
+  describe('orderSucess', () => {
+    const initialState = {
+      orderResult: null,
+    };
+
+    const state = reducer(initialState, orderSuccess());
+
+    expect(state.orderResult).toBe(true);
   });
 });
 
