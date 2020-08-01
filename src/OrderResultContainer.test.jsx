@@ -34,4 +34,16 @@ describe('OrderResultContainer', () => {
       expect(container).toHaveTextContent(bankAccountMessage);
     });
   });
+
+  context('with fail order result', () => {
+    it('renders the order success message and bank account', () => {
+      const failMessage = '주문이 실패했습니다.';
+
+      given('orderResult', () => false);
+
+      const { container } = renderOrderResultContainer();
+
+      expect(container).toHaveTextContent(failMessage);
+    });
+  });
 });
