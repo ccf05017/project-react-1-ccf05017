@@ -21,6 +21,7 @@ describe('OrderFormContainer', () => {
         amount: 0,
         address: '',
       },
+      orderResult: given.orderResult,
     }));
 
     useDispatch.mockImplementation(() => dispatch);
@@ -78,6 +79,18 @@ describe('OrderFormContainer', () => {
         name: 'username',
         value: username,
       },
+    });
+  });
+
+  context('with order result', () => {
+    it('renders the order result message', () => {
+      const orderSuccessMessage = '주문이 완료됐습니다.';
+
+      given('orderResult', () => true);
+
+      const { container } = renderOrderFormContainer();
+
+      expect(container).toHaveTextContent(orderSuccessMessage);
     });
   });
 });
