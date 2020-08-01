@@ -4,6 +4,7 @@ import {
   fetchCategories,
   fetchProducts,
   fetchProduct,
+  requestOrder,
 } from '../services/api';
 
 const { actions, reducer } = createSlice({
@@ -60,17 +61,10 @@ const { actions, reducer } = createSlice({
       };
     },
 
-    orderSuccess(state) {
+    setOrderResult(state, { payload: orderResult }) {
       return {
         ...state,
-        orderResult: true,
-      };
-    },
-
-    orderFail(state) {
-      return {
-        ...state,
-        orderResult: false,
+        orderResult,
       };
     },
 
@@ -89,8 +83,7 @@ export const {
   setProducts,
   setProduct,
   changeOrderForm,
-  orderSuccess,
-  orderFail,
+  setOrderResult,
   clearOrderResult,
 } = actions;
 
@@ -114,7 +107,9 @@ export function loadProductDetail(productId) {
 
 export function orderProduct() {
   return async (dispatch) => {
+    const orderResult = await requestOrder();
 
+    dispatch(setOrderResult(orderResult));
   };
 }
 

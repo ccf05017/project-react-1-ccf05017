@@ -23,3 +23,7 @@ export async function fetchProduct(productId) {
 
   return data;
 }
+
+export async function requestOrder() {
+
+}

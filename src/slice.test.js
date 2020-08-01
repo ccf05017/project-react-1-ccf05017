@@ -10,9 +10,9 @@ import reducer, {
   setProduct,
   loadProductDetail,
   changeOrderForm,
-  orderSuccess,
-  orderFail,
+  setOrderResult,
   clearOrderResult,
+  orderProduct,
 } from './slice';
 
 import categoriesFixture from '../fixtures/categories';
@@ -117,24 +117,14 @@ describe('reducer', () => {
     });
   });
 
-  describe('orderSucess', () => {
+  describe('setOrderResult', () => {
     const initialState = {
       orderResult: null,
     };
 
-    const state = reducer(initialState, orderSuccess());
+    const state = reducer(initialState, setOrderResult(true));
 
     expect(state.orderResult).toBe(true);
-  });
-
-  describe('orderFail', () => {
-    const initialState = {
-      orderResult: null,
-    };
-
-    const state = reducer(initialState, orderFail());
-
-    expect(state.orderResult).toBe(false);
   });
 
   describe('clearOrderResult', () => {
@@ -177,6 +167,20 @@ describe('async actions', () => {
       const actions = store.getActions();
 
       expect(actions[0]).toEqual(setProduct(productFixture));
+    });
+  });
+
+  describe('orderProduct', () => {
+    beforeEach(() => {
+      store = mockStore({});
+    });
+
+    it('order the product and update order status', async () => {
+      await store.dispatch(orderProduct());
+
+      const actions = store.getActions();
+
+      expect(actions[0]).toEqual(setOrderResult(true));
     });
   });
 });
