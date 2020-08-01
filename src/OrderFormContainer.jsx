@@ -6,6 +6,8 @@ import { changeOrderForm } from './slice';
 
 import InputField from './InputField';
 
+import OrderResultContainer from './OrderResultContainer';
+
 export default function OrderFormContainer() {
   const dispatch = useDispatch();
 
@@ -13,8 +15,10 @@ export default function OrderFormContainer() {
     orderForm: {
       username, phoneNumber, amount, address,
     },
+    orderResult,
   } = useSelector((state) => ({
     orderForm: state.orderForm,
+    orderResult: state.orderResult,
   }));
 
   function handleChange(event) {
@@ -56,6 +60,8 @@ export default function OrderFormContainer() {
       <button type="button">
         주문하기
       </button>
+
+      {orderResult && <OrderResultContainer />}
     </>
   );
 }
