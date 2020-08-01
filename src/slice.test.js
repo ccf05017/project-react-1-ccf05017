@@ -12,6 +12,7 @@ import reducer, {
   changeOrderForm,
   orderSuccess,
   orderFail,
+  clearOrderResult,
 } from './slice';
 
 import categoriesFixture from '../fixtures/categories';
@@ -134,6 +135,16 @@ describe('reducer', () => {
     const state = reducer(initialState, orderFail());
 
     expect(state.orderResult).toBe(false);
+  });
+
+  describe('clearOrderResult', () => {
+    const initialState = {
+      orderResult: true,
+    };
+
+    const state = reducer(initialState, clearOrderResult());
+
+    expect(state.orderResult).toBe(null);
   });
 });
 

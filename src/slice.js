@@ -73,6 +73,13 @@ const { actions, reducer } = createSlice({
         orderResult: false,
       };
     },
+
+    clearOrderResult(state) {
+      return {
+        ...state,
+        orderResult: null,
+      };
+    },
   },
 });
 
@@ -84,6 +91,7 @@ export const {
   changeOrderForm,
   orderSuccess,
   orderFail,
+  clearOrderResult,
 } = actions;
 
 export function loadInitialState() {
