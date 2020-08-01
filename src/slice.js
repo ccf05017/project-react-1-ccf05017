@@ -19,6 +19,7 @@ const { actions, reducer } = createSlice({
       amount: 0,
       address: '',
     },
+    orderResult: null,
   },
   reducers: {
     setCategories(state, { payload: categories }) {

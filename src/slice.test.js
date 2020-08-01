@@ -33,6 +33,7 @@ describe('reducer', () => {
         amount: 0,
         address: '',
       },
+      orderResult: null,
     };
 
     it('returns the initialStates', () => {
