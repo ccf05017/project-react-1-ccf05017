@@ -105,4 +105,14 @@ describe('OrderFormContainer', () => {
       expect(container).not.toHaveTextContent(orderSuccessMessage);
     });
   });
+
+  it('listens the click button', () => {
+    const orderButton = '주문하기';
+
+    const { getByText } = renderOrderFormContainer();
+
+    fireEvent.click(getByText(orderButton));
+
+    expect(dispatch).toBeCalled();
+  });
 });

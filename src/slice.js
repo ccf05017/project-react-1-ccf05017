@@ -112,4 +112,10 @@ export function loadProductDetail(productId) {
   };
 }
 
+export function orderProduct() {
+  return async (dispatch) => {
+
+  };
+}
+
 export default reducer;

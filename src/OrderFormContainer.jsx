@@ -2,7 +2,10 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { changeOrderForm } from './slice';
+import {
+  changeOrderForm,
+  orderProduct,
+} from './slice';
 
 import InputField from './InputField';
 
@@ -25,6 +28,10 @@ export default function OrderFormContainer() {
     const { target: { name, value } } = event;
 
     dispatch(changeOrderForm({ name, value }));
+  }
+
+  function handleClick() {
+    dispatch(orderProduct());
   }
 
   return (
@@ -57,7 +64,7 @@ export default function OrderFormContainer() {
         onChange={handleChange}
       />
 
-      <button type="button">
+      <button type="button" onClick={handleClick}>
         주문하기
       </button>
 
