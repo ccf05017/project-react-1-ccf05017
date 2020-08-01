@@ -11,6 +11,7 @@ import reducer, {
   loadProductDetail,
   changeOrderForm,
   orderSuccess,
+  orderFail,
 } from './slice';
 
 import categoriesFixture from '../fixtures/categories';
@@ -123,6 +124,16 @@ describe('reducer', () => {
     const state = reducer(initialState, orderSuccess());
 
     expect(state.orderResult).toBe(true);
+  });
+
+  describe('orderFail', () => {
+    const initialState = {
+      orderResult: null,
+    };
+
+    const state = reducer(initialState, orderFail());
+
+    expect(state.orderResult).toBe(false);
   });
 });
 
