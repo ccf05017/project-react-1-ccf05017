@@ -4,6 +4,7 @@ import {
   fetchCategories,
   fetchProducts,
   fetchProduct,
+  requestOrder,
 } from '../services/api';
 
 const { actions, reducer } = createSlice({
@@ -13,6 +14,13 @@ const { actions, reducer } = createSlice({
     selectedCategory: null,
     products: [],
     product: null,
+    orderForm: {
+      username: '',
+      phoneNumber: '',
+      amount: 0,
+      address: '',
+    },
+    orderResult: null,
   },
   reducers: {
     setCategories(state, { payload: categories }) {
@@ -42,6 +50,30 @@ const { actions, reducer } = createSlice({
         product,
       };
     },
+
+    changeOrderForm(state, { payload: { name, value } }) {
+      return {
+        ...state,
+        orderForm: {
+          ...state.orderForm,
+          [name]: value,
+        },
+      };
+    },
+
+    setOrderResult(state, { payload: orderResult }) {
+      return {
+        ...state,
+        orderResult,
+      };
+    },
+
+    clearOrderResult(state) {
+      return {
+        ...state,
+        orderResult: null,
+      };
+    },
   },
 });
 
@@ -50,6 +82,9 @@ export const {
   selectCategory,
   setProducts,
   setProduct,
+  changeOrderForm,
+  setOrderResult,
+  clearOrderResult,
 } = actions;
 
 export function loadInitialState() {
@@ -67,6 +102,22 @@ export function loadProductDetail(productId) {
     const product = await fetchProduct(productId);
 
     dispatch(setProduct(product));
+  };
+}
+
+export function orderProduct() {
+  return async (dispatch, getState) => {
+    const {
+      product: { id }, orderForm: {
+        username, phoneNumber, amount, address,
+      },
+    } = getState();
+
+    const orderResult = await requestOrder({
+      id, username, phoneNumber, amount, address,
+    });
+
+    dispatch(setOrderResult(orderResult));
   };
 }
 

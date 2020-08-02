@@ -2,6 +2,7 @@ import {
   fetchCategories,
   fetchProducts,
   fetchProduct,
+  requestOrder,
 } from './api';
 
 import categoriesFixture from '../fixtures/categories';
@@ -40,5 +41,25 @@ describe('fetchProduct', () => {
     const product = await fetchProduct(productFixture.id);
 
     expect(product).toEqual(productFixture);
+  });
+});
+
+describe('requestOrder', () => {
+  it('order the product and get result', async () => {
+    const { id } = productFixture;
+
+    global.fetch = jest.fn().mockReturnValue({
+      async json() {
+        return ({
+          status: true,
+        });
+      },
+    });
+
+    const orderResult = await requestOrder({
+      id, username: '홍길동', phoneNumber: '010-0000-0000', amount: 0, address: '지구',
+    });
+
+    expect(orderResult).toEqual(true);
   });
 });

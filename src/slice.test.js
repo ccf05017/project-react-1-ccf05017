@@ -9,6 +9,10 @@ import reducer, {
   setProducts,
   setProduct,
   loadProductDetail,
+  changeOrderForm,
+  setOrderResult,
+  clearOrderResult,
+  orderProduct,
 } from './slice';
 
 import categoriesFixture from '../fixtures/categories';
@@ -26,6 +30,13 @@ describe('reducer', () => {
       selectedCategory: null,
       products: [],
       product: null,
+      orderForm: {
+        username: '',
+        phoneNumber: '',
+        amount: 0,
+        address: '',
+      },
+      orderResult: null,
     };
 
     it('returns the initialStates', () => {
@@ -85,6 +96,46 @@ describe('reducer', () => {
       expect(state.product).toEqual(productFixture);
     });
   });
+
+  describe('changeOrderForm', () => {
+    it('can change OrderForm values', () => {
+      const name = 'username';
+      const value = '홍길동';
+
+      const initialState = {
+        orderForm: {
+          username: '',
+          phoneNumber: '',
+          amount: 0,
+          address: '',
+        },
+      };
+
+      const state = reducer(initialState, changeOrderForm({ name, value }));
+
+      expect(state.orderForm.username).toBe(value);
+    });
+  });
+
+  describe('setOrderResult', () => {
+    const initialState = {
+      orderResult: null,
+    };
+
+    const state = reducer(initialState, setOrderResult(true));
+
+    expect(state.orderResult).toBe(true);
+  });
+
+  describe('clearOrderResult', () => {
+    const initialState = {
+      orderResult: true,
+    };
+
+    const state = reducer(initialState, clearOrderResult());
+
+    expect(state.orderResult).toBe(null);
+  });
 });
 
 describe('async actions', () => {
@@ -116,6 +167,28 @@ describe('async actions', () => {
       const actions = store.getActions();
 
       expect(actions[0]).toEqual(setProduct(productFixture));
+    });
+  });
+
+  describe('orderProduct', () => {
+    beforeEach(() => {
+      store = mockStore({
+        product: productFixture,
+        orderForm: {
+          username: '',
+          phoneNumber: '',
+          amount: 0,
+          address: '',
+        },
+      });
+    });
+
+    it('order the product and update order status', async () => {
+      await store.dispatch(orderProduct());
+
+      const actions = store.getActions();
+
+      expect(actions[0]).toEqual(setOrderResult(true));
     });
   });
 });

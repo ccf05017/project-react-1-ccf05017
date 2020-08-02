@@ -1,5 +1,7 @@
 import React from 'react';
 
+import OrderFormContainer from './OrderFormContainer';
+
 export default function ProductDetail({ product }) {
   return (
     <>
@@ -16,6 +18,7 @@ export default function ProductDetail({ product }) {
         {' '}
         원
       </p>
+      <OrderFormContainer />
     </>
   );
 }
