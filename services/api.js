@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const API_SERVER = 'http://3.34.86.117:8000';
 
 export async function fetchCategories() {
@@ -32,7 +34,6 @@ export async function requestOrder({
 
   const response = await fetch(url, {
     method: 'POST',
-    mode: 'no-cors',
     headers: {
       'Content-Type': 'application/json',
     },
