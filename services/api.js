@@ -24,6 +24,22 @@ export async function fetchProduct(productId) {
   return data;
 }
 
-export async function requestOrder() {
+export async function requestOrder({
+  id, username, phoneNumber, amount, address,
+}) {
+  const message = `${id}를 ${username}(${phoneNumber})님이 ${address}로 ${amount}개 주문하셨습니다.`;
+  const url = 'http://3.34.86.117:8081/send';
 
+  const response = await fetch(url, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ message }),
+  });
+
+  const data = await response.json();
+
+  return data.status;
 }
