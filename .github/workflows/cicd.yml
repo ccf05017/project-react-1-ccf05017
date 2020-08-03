@@ -9,6 +9,10 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Test
+        run: |
+          npm test
+
       - name: Install and Build
         run: |
           npm install
