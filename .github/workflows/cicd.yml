@@ -17,6 +17,8 @@ jobs:
       - name: Test
         run: |
           npm test
+        env:
+          HEADLESS: true
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.5.9
