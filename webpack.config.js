@@ -5,7 +5,7 @@ module.exports = {
   entry: path.resolve(__dirname, 'src/index.jsx'),
   output: {
     filename: 'bundle-[hash].js',
-    path: path.resolve('./dist'),
+    path: path.resolve('./build'),
   },
   module: {
     rules: [
