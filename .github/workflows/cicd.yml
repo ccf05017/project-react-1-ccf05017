@@ -25,4 +25,5 @@ jobs:
           BRANCH: gh-pages
           FOLDER: build
           CLEAN: true
+          ACTIONS_STEP_DEBUG: true
           
