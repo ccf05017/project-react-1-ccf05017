@@ -13,6 +13,8 @@ jobs:
         run: |
           npm install
           npm run build
+          cp -r dist/bundle-*.js build/
+          cp dist/index.html build/
 
       - name: Test
         run: |
