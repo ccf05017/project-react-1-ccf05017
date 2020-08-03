@@ -1,10 +1,15 @@
-import axios from 'axios';
-
 const API_SERVER = 'http://3.34.86.117:8000';
+
+const headers = {
+  'Content-Security-Policy': 'upgrade-insecure-requests',
+  'Content-Type': 'application/json',
+};
 
 export async function fetchCategories() {
   const url = `${API_SERVER}/categories`;
-  const response = await fetch(url);
+  const response = await fetch(url, {
+    headers,
+  });
   const data = await response.json();
 
   return data;
@@ -12,7 +17,9 @@ export async function fetchCategories() {
 
 export async function fetchProducts() {
   const url = `${API_SERVER}/products`;
-  const response = await fetch(url);
+  const response = await fetch(url, {
+    headers,
+  });
   const data = await response.json();
 
   return data;
@@ -20,7 +27,9 @@ export async function fetchProducts() {
 
 export async function fetchProduct(productId) {
   const url = `${API_SERVER}/products/${productId}`;
-  const response = await fetch(url);
+  const response = await fetch(url, {
+    headers,
+  });
   const data = await response.json();
 
   return data;
@@ -34,9 +43,7 @@ export async function requestOrder({
 
   const response = await fetch(url, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    headers,
     body: JSON.stringify({ message }),
   });
 
