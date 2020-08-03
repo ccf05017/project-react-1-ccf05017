@@ -1,5 +1,5 @@
 name: Build and Deploy
-on: [push, pull_request]
+on: [pull_request]
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -9,14 +9,14 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Test
-        run: |
-          npm test
-
       - name: Install and Build
         run: |
           npm install
           npm run build
+
+      - name: Test
+        run: |
+          npm test
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.5.9
