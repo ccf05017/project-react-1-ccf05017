@@ -1,8 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
-// hello
-
 module.exports = {
   entry: path.resolve(__dirname, 'src/index.jsx'),
   output: {
@@ -27,6 +25,8 @@ module.exports = {
     }),
   ],
   devServer: {
+    host: '0.0.0.0',
+    disableHostCheck: true,
     historyApiFallback: {
       index: 'index.html',
     },
