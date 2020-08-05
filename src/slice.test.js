@@ -13,6 +13,7 @@ import reducer, {
   setOrderResult,
   clearOrderResult,
   orderProduct,
+  clearOrderForm,
 } from './slice';
 
 import categoriesFixture from '../fixtures/categories';
@@ -135,6 +136,28 @@ describe('reducer', () => {
     const state = reducer(initialState, clearOrderResult());
 
     expect(state.orderResult).toBe(null);
+  });
+
+  describe('clearOrderForm', () => {
+    const initialState = {
+      orderForm: {
+        username: '홍길동',
+        phoneNumber: '010-0000-0000',
+        amount: 10,
+        address: '지구',
+      },
+    };
+
+    const cleanedForm = {
+      username: '',
+      phoneNumber: '',
+      amount: 0,
+      address: '',
+    };
+
+    const state = reducer(initialState, clearOrderForm());
+
+    expect(state.orderForm).toEqual(cleanedForm);
   });
 });
 

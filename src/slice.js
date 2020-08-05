@@ -7,6 +7,13 @@ import {
   requestOrder,
 } from '../services/api';
 
+const initialOrderForm = {
+  username: '',
+  phoneNumber: '',
+  amount: 0,
+  address: '',
+};
+
 const { actions, reducer } = createSlice({
   name: 'application',
   initialState: {
@@ -14,12 +21,7 @@ const { actions, reducer } = createSlice({
     selectedCategory: null,
     products: [],
     product: null,
-    orderForm: {
-      username: '',
-      phoneNumber: '',
-      amount: 0,
-      address: '',
-    },
+    orderForm: initialOrderForm,
     orderResult: null,
   },
   reducers: {
@@ -61,6 +63,13 @@ const { actions, reducer } = createSlice({
       };
     },
 
+    clearOrderForm(state) {
+      return {
+        ...state,
+        orderForm: initialOrderForm,
+      };
+    },
+
     setOrderResult(state, { payload: orderResult }) {
       return {
         ...state,
@@ -85,6 +94,7 @@ export const {
   changeOrderForm,
   setOrderResult,
   clearOrderResult,
+  clearOrderForm,
 } = actions;
 
 export function loadInitialState() {
