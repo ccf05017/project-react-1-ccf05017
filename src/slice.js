@@ -128,6 +128,7 @@ export function orderProduct() {
     });
 
     dispatch(setOrderResult(orderResult));
+    dispatch(clearOrderForm());
   };
 }
 
