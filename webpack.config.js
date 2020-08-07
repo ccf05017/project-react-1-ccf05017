@@ -32,10 +32,6 @@ module.exports = (env, argv) => ({
     }),
   ],
   devServer: {
-    host: '0.0.0.0',
-    disableHostCheck: true,
-    historyApiFallback: {
-      index: 'index.html',
-    },
+    historyApiFallback: true,
   },
 });
