@@ -22,4 +22,20 @@ describe('OrderResult', () => {
       expect(container).not.toHaveTextContent(orderFailMessage);
     });
   });
+
+  context('when order result is success', () => {
+    it('renders the success message', () => {
+      const { container } = renderOrderResult(null);
+
+      expect(container).not.toHaveTextContent(orderSuccessMessage);
+    });
+  });
+
+  context('when order result is fail', () => {
+    it('renders the fail message', () => {
+      const { container } = renderOrderResult(null);
+
+      expect(container).not.toHaveTextContent(orderFailMessage);
+    });
+  });
 });
