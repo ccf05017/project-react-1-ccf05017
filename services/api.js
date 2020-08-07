@@ -1,4 +1,4 @@
-const API_SERVER = 'http://3.34.86.117:8000';
+const API_SERVER = 'https://3.34.86.117:8000';
 
 const headers = {
   'Content-Security-Policy': 'upgrade-insecure-requests',
