@@ -12,6 +12,9 @@ exports.config = {
       url: 'http://localhost:8080',
       show: true,
       windowSize: '1200x900',
+      chrome: {
+        ignoreHTTPSErrors: true,
+      },
     },
   },
   include: {
