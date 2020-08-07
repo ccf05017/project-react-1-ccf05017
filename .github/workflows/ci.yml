@@ -29,7 +29,6 @@ jobs:
         run: |
           npm run build
           cp -r dist/index.html dist/404.html
-          cp -r dist/bundle-*.js dist/
 
       - name: Deploy
         if: github.ref == 'refs/heads/master'
