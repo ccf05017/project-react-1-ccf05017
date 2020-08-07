@@ -28,7 +28,7 @@ jobs:
       - name: Build
         run: |
           npm run build
-          cp -r dist/index.html public/404.html
+          cp -r dist/index.html public/
           cp -r dist/bundle-*.js public/
 
       - name: Deploy
