@@ -4,7 +4,10 @@ import { useParams } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { loadProductDetail } from './slice';
+import {
+  clearOrderResult,
+  loadProductDetail,
+} from './slice';
 
 import ProductDetail from './ProductDetail';
 
@@ -14,6 +17,7 @@ export default function ProductDetailContainer({ params }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(clearOrderResult());
     dispatch(loadProductDetail(id));
   }, []);
 

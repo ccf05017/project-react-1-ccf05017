@@ -49,10 +49,10 @@ describe('ProductDetailContainer', () => {
       expect(container).toHaveTextContent(`가격: ${productFixture.price}`);
     });
 
-    it('loads the product detail', () => {
+    it('loads the product detail and clear order result', () => {
       renderProductDetailContainer();
 
-      expect(dispatch).toBeCalled();
+      expect(dispatch).toBeCalledTimes(2);
     });
   });
 
