@@ -9,7 +9,7 @@ import CategoryItem from './CategoryItem';
 export default function CategoryItemContainer({ category }) {
   const dispatch = useDispatch();
 
-  function handleMouseOver(categoryId) {
+  function handleClick(categoryId) {
     dispatch(selectCategory(categoryId));
   }
 
@@ -23,7 +23,7 @@ export default function CategoryItemContainer({ category }) {
     <>
       <CategoryItem
         category={category}
-        onMouseOver={handleMouseOver}
+        onClick={handleClick}
         isSelected={isSelected}
       />
     </>

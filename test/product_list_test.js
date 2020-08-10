@@ -32,7 +32,7 @@ Scenario('카테고리 별로 상품 목록을 확인 할 수 있다.', (I) => {
   I.amOnPage('/');
 
   categories.forEach((category) => {
-    I.moveCursorTo(locate('div div').at(category.index));
+    I.click(locate('.category-item').at(category.index));
 
     I.see(getMatchedProduct(category).title);
     I.see(getMatchedProduct(category).price);
@@ -43,11 +43,12 @@ Scenario('상품 상세 페이지로 이동할 수 있다.', async (I) => {
   I.amOnPage('/');
 
   const birthdayCategory = categories.find(({ name }) => name === '생일');
-
-  I.moveCursorTo(locate('div div').at(birthdayCategory.index));
-  I.see(birthdayCategory.name);
+  const birthdayProduct = products.find(({ title }) => title === '생일축하해');
 
   I.click(birthdayCategory.name);
+  I.see(birthdayCategory.name);
+
+  I.click(birthdayProduct.title);
   const url = await I.grabCurrentUrl();
 
   assert.equal(/\/products\/\d/.test(url), true);

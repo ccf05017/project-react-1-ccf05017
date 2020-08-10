@@ -14,7 +14,7 @@ import {
 jest.mock('react-redux');
 
 describe('CategoryItemContainer', () => {
-  const handleMouseOver = jest.fn();
+  const handleClick = jest.fn();
 
   const dispatch = jest.fn();
 
@@ -32,7 +32,7 @@ describe('CategoryItemContainer', () => {
     return render((
       <CategoryItemContainer
         category={category}
-        onMouseOver={handleMouseOver}
+        onClick={handleClick}
       />
     ));
   }
@@ -55,7 +55,7 @@ describe('CategoryItemContainer', () => {
     it('select the category', () => {
       const { getByText } = renderCategoryItemContainer(selectedCategoryFixture);
 
-      fireEvent.mouseOver(getByText(`${selectedCategoryFixture.name}(O)`));
+      fireEvent.click(getByText(`${selectedCategoryFixture.name}(O)`));
 
       expect(dispatch).toBeCalledWith({
         type: 'application/selectCategory',

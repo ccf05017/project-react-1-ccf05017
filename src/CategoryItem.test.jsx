@@ -9,13 +9,13 @@ import {
 } from '../fixtures/categories';
 
 describe('CategoryItem', () => {
-  const handleMouseOver = jest.fn();
+  const handleClick = jest.fn();
 
   function renderCategoryItem() {
     return render((
       <CategoryItem
         category={selectedCategoryFixture}
-        onMouseOver={handleMouseOver}
+        onClick={handleClick}
       />
     ));
   }
@@ -23,9 +23,8 @@ describe('CategoryItem', () => {
   it('listens the mouse over event on categories', () => {
     const { getByText } = renderCategoryItem();
 
-    fireEvent.focus(getByText(selectedCategoryFixture.name));
-    fireEvent.mouseOver(getByText(selectedCategoryFixture.name));
+    fireEvent.click(getByText(selectedCategoryFixture.name));
 
-    expect(handleMouseOver).toBeCalledWith(selectedCategoryFixture.id);
+    expect(handleClick).toBeCalledWith(selectedCategoryFixture.id);
   });
 });
