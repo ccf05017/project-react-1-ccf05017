@@ -21,6 +21,9 @@ const MainLink = styled('h1')`
   & > a {
     text-decoration: none;
   }
+  & > a:visited {
+    color: black;
+  }
 `;
 
 export default function Header() {
