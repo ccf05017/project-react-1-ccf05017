@@ -26,7 +26,6 @@ Scenario('항목별 제목을 볼 수 있다.', (I) => {
   I.amOnPage('/');
 
   I.see('YenTopper');
-  I.see('카테고리');
   I.see('상품');
 });
 

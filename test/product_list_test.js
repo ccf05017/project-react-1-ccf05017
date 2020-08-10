@@ -32,7 +32,7 @@ Scenario('카테고리 별로 상품 목록을 확인 할 수 있다.', (I) => {
   I.amOnPage('/');
 
   categories.forEach((category) => {
-    I.moveCursorTo(locate('ul li').at(category.index));
+    I.moveCursorTo(locate('div div').at(category.index));
 
     I.see(getMatchedProduct(category).title);
     I.see(getMatchedProduct(category).price);
@@ -44,7 +44,7 @@ Scenario('상품 상세 페이지로 이동할 수 있다.', async (I) => {
 
   const birthdayCategory = categories.find(({ name }) => name === '생일');
 
-  I.moveCursorTo(locate('ul li').at(birthdayCategory.index));
+  I.moveCursorTo(locate('div div').at(birthdayCategory.index));
   I.see(birthdayCategory.name);
 
   I.click(birthdayCategory.name);
