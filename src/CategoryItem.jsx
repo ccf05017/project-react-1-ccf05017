@@ -4,11 +4,11 @@ export default function CategoryItem({ category, onMouseOver, isSelected }) {
   const { id, name } = category;
 
   return (
-    <li
+    <div
       onMouseOver={() => onMouseOver(id)}
       onFocus={() => onMouseOver(id)}
     >
       {name + (isSelected ? '(O)' : '')}
-    </li>
+    </div>
   );
 }
