@@ -15,7 +15,6 @@ jest.mock('react-redux');
 
 describe('RoutePage', () => {
   const storeTitle = 'YenTopper';
-  const categoryTitle = '카테고리';
   const productTitle = '상품';
   const productDetailTitle = '상품 상세';
 
@@ -49,7 +48,6 @@ describe('RoutePage', () => {
       ));
 
       expect(container).toHaveTextContent(storeTitle);
-      expect(container).toHaveTextContent(categoryTitle);
       expect(container).toHaveTextContent(productTitle);
     });
   });

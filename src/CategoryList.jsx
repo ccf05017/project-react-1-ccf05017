@@ -22,7 +22,6 @@ const LocalNavComponents = styled('div')`
 export default function CategoryList({ categories }) {
   return (
     <>
-      <h2>카테고리</h2>
       <LocalNavContainer>
         <LocalNavComponents>
           {categories.map((category) => (

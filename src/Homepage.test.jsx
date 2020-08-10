@@ -36,12 +36,9 @@ describe('Homepage', () => {
     });
 
     it('renders the homepage with filtered products', () => {
-      const categoryListHeader = '카테고리';
       const notSelectedProduct = notSelectedCategoryFixture;
 
       const { container } = renderHomepage();
-
-      expect(container).toHaveTextContent(categoryListHeader);
 
       selectedProductList.forEach((selectedProduct) => {
         expect(container).toHaveTextContent(selectedProduct.title);
@@ -62,11 +59,7 @@ describe('Homepage', () => {
     });
 
     it('renders the homepage with whole products', () => {
-      const categoryListHeader = '카테고리';
-
       const { container } = renderHomepage();
-
-      expect(container).toHaveTextContent(categoryListHeader);
 
       productsFixture.forEach((product) => {
         expect(container).toHaveTextContent(product.title);
