@@ -9,7 +9,7 @@ import {
 
 import store from './store';
 
-import './default.css';
+import './assets/css/default.css';
 
 import App from './App';
 
