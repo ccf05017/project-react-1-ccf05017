@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 import ProductItemContainer from './ProductItemContainer';
 
 const ProductsContainer = styled('div')`
-  margin-top: 45px
+  margin-top: 45px;
 `;
 
 export default function ProductList({ products }) {

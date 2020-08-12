@@ -3,12 +3,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;900&display=swap');
 
 html {
-	font-family: 'Apple SD Gothic Neo', Roboto, 'Noto Sans KR', NanumGothic, 'Malgun Gothic', sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 14px;
 	line-height: 1.2;
 	word-wrap: break-word;
 }
 body {
 	-webkit-font-smoothing: antialiased;
+	overflow-x: hidden;
+	color: rgb(29, 29, 31);
+	letter-spacing: -0.05em;
+	background: white;
+}
+p {
+	line-height: 1.6;
+}
+a {
+	color: rgb(29, 29, 31);
+	text-decoration: none;
 }
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,

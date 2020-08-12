@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 
 import CategoryItemContainer from './CategoryItemContainer';
 
-const LocalNavContainer = styled('nav')`
+const MenuNavigation = styled('nav')`
   position: absolute;
   top: 45px;
   left: 0;
@@ -13,28 +13,29 @@ const LocalNavContainer = styled('nav')`
   padding: 0 1rem;
 `;
 
-const LocalNavComponents = styled('div')`
+const MenuNavigationComponents = styled('div')`
   display: flex;
   align-items: center;
+  justify-content: space-around;
   max-width: 1000px;
   height: 100%;
   margin: 0 auto;
-  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
 `;
 
 export default function CategoryList({ categories }) {
   return (
     <>
-      <LocalNavContainer>
-        <LocalNavComponents>
+      <MenuNavigation>
+        <MenuNavigationComponents>
           {categories.map((category) => (
             <CategoryItemContainer
               key={category.id}
               category={category}
             />
           ))}
-        </LocalNavComponents>
-      </LocalNavContainer>
+        </MenuNavigationComponents>
+      </MenuNavigation>
     </>
   );
 }
