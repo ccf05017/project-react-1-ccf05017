@@ -5,7 +5,6 @@ export default function CategoryItem({ category, onClick, isSelected }) {
 
   return (
     <div
-      className="category-item"
       onClick={() => onClick(id)}
     >
       {name + (isSelected ? '(O)' : '')}
