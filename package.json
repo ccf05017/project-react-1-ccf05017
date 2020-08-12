@@ -53,9 +53,13 @@
   },
   "dependencies": {
     "@codeceptjs/configure": "^0.5.2",
+    "@emotion/core": "10.0.28",
+    "@emotion/styled": "10.0.27",
     "@reduxjs/toolkit": "1.4.0",
     "axios": "0.19.2",
+    "css-loader": "4.2.1",
     "dotenv-webpack": "2.0.0",
+    "emotion": "10.0.27",
     "gh-pages": "3.1.0",
     "html-webpack-plugin": "4.3.0",
     "react": "^16.13.1",
@@ -64,8 +68,7 @@
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "@emotion/core": "10.0.28",
-    "@emotion/styled": "10.0.27",
-    "emotion": "10.0.27"
+    "reset-css": "5.0.1",
+    "style-loader": "1.2.1"
   }
 }
