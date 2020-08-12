@@ -47,15 +47,18 @@ describe('CategoryItemContainer', () => {
 
   context('with selected', () => {
     it('renders the selected item', () => {
-      const { container } = renderCategoryItemContainer(selectedCategoryFixture);
+      const { getByText } = renderCategoryItemContainer(selectedCategoryFixture);
 
-      expect(container).toHaveTextContent(`${selectedCategoryFixture.name}(O)`);
+      const { className } = getByText(selectedCategoryFixture.name);
+      const style = window.getComputedStyle(document.getElementsByClassName(className)[0]);
+
+      expect(style.color).toBe('white');
     });
 
     it('select the category', () => {
       const { getByText } = renderCategoryItemContainer(selectedCategoryFixture);
 
-      fireEvent.click(getByText(`${selectedCategoryFixture.name}(O)`));
+      fireEvent.click(getByText(`${selectedCategoryFixture.name}`));
 
       expect(dispatch).toBeCalledWith({
         type: 'application/selectCategory',
