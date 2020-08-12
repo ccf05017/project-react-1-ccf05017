@@ -1,5 +1,9 @@
 @import 'reset-css';
 
-body {
-  background-color: gold;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;900&display=swap');
+
+html {
+	font-family: 'Apple SD Gothic Neo', Roboto, 'Noto Sans KR', NanumGothic, 'Malgun Gothic', sans-serif;
+	line-height: 1.2;
+	word-wrap: break-word;
 }
