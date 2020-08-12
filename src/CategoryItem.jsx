@@ -35,6 +35,7 @@ export default function CategoryItem({ category, onClick, isSelected }) {
   if (isSelected) {
     return (
       <SelectedDiv
+        className="category-item"
         onClick={() => onClick(id)}
       >
         {name}
@@ -44,6 +45,7 @@ export default function CategoryItem({ category, onClick, isSelected }) {
 
   return (
     <HoverDiv
+      className="category-item"
       onClick={() => onClick(id)}
     >
       {name}
