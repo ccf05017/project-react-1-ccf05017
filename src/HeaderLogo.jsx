@@ -10,19 +10,16 @@ import { LogoImage } from './assets';
 
 const MainNav = styled.div({
   display: 'flex',
-  height: '44px',
-  padding: '0 1rem',
   alignItems: 'center',
   justifyContent: 'center',
 });
 
 const Logo = styled('img')`
-  padding-top: 100px;
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
 `;
 
-export default function Header() {
+export default function HeaderLogo() {
   return (
     <>
       <MainNav>
