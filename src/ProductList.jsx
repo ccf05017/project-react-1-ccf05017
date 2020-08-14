@@ -5,7 +5,10 @@ import styled from '@emotion/styled';
 import ProductItemContainer from './ProductItemContainer';
 
 const ProductsContainer = styled('div')`
-  margin-top: 45px;
+  max-width: 1000px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 14px;
 `;
 
 export default function ProductList({ products }) {

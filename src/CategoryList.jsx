@@ -5,9 +5,6 @@ import styled from '@emotion/styled';
 import CategoryItemContainer from './CategoryItemContainer';
 
 const MenuNavigation = styled('nav')`
-  position: absolute;
-  top: 45px;
-  left: 0;
   width: 100%;
   height: 44px;
   padding: 0 1rem;

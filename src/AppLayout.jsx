@@ -8,12 +8,11 @@ import HeaderLogo from './HeaderLogo';
 
 const GridContainer = styled('div')`
   display: grid;
-  grid-template-rows: 100px 100px;
+  grid-template-rows: 100px 45px;
 `;
 
 const Header = styled('div')`
   height: 100%;
-  background-color: red;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,7 +20,6 @@ const Header = styled('div')`
 
 const NavBar = styled('div')`
   height: 100%;
-  background-color: yellow;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,7 +27,6 @@ const NavBar = styled('div')`
 
 const Contents = styled('div')`
   height: 100%;
-  background-color: green;
 `;
 
 export default function AppLayout() {
