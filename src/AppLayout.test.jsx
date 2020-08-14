@@ -6,7 +6,7 @@ import { MemoryRouter } from 'react-router-dom';
 
 import { render } from '@testing-library/react';
 
-import RoutePage from './RoutePage';
+import AppLayout from './AppLayout';
 
 import productsFixture, { productFixture } from '../fixtures/products';
 import categoriesFixture, { selectedCategoryFixture } from '../fixtures/categories';
@@ -44,7 +44,7 @@ describe('RoutePage', () => {
     it('renders the homepage', () => {
       const { container, getByAltText } = render((
         <MemoryRouter initialEntries={['/']}>
-          <RoutePage />
+          <AppLayout />
         </MemoryRouter>
       ));
 
@@ -57,7 +57,7 @@ describe('RoutePage', () => {
     it('renders the product detail page', () => {
       const { container } = render((
         <MemoryRouter initialEntries={['/products/1']}>
-          <RoutePage />
+          <AppLayout />
         </MemoryRouter>
       ));
 
