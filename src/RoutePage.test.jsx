@@ -12,6 +12,7 @@ import productsFixture, { productFixture } from '../fixtures/products';
 import categoriesFixture, { selectedCategoryFixture } from '../fixtures/categories';
 
 jest.mock('react-redux');
+jest.mock('./assets');
 
 describe('RoutePage', () => {
   const storeTitle = 'YenTopper';
@@ -41,13 +42,13 @@ describe('RoutePage', () => {
 
   context('with path /', () => {
     it('renders the homepage', () => {
-      const { container } = render((
+      const { container, getByAltText } = render((
         <MemoryRouter initialEntries={['/']}>
           <RoutePage />
         </MemoryRouter>
       ));
 
-      expect(container).toHaveTextContent(storeTitle);
+      expect(getByAltText(storeTitle)).not.toBeNull();
       expect(container).toHaveTextContent(productTitle);
     });
   });

@@ -15,6 +15,7 @@ import productsFixture from '../fixtures/products';
 import App from './App';
 
 jest.mock('react-redux');
+jest.mock('./assets');
 
 describe('App', () => {
   const dispatch = jest.fn();

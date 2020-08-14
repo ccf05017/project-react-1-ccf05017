@@ -6,34 +6,30 @@ import {
 
 import styled from '@emotion/styled';
 
+import { LogoImage } from './assets';
+
 const MainNav = styled.div({
   display: 'flex',
   height: '44px',
   padding: '0 1rem',
+  alignItems: 'center',
+  justifyContent: 'center',
 });
 
-const MainLink = styled('h1')`
-  align-items: center;
-  max-width: 1000px;
-  height: 100%;
-  margin: 0 auto;
-  justify-content: space-between;
-  & > a {
-    text-decoration: none;
-  }
-  & > a:visited {
-    color: black;
-  }
+const Logo = styled('img')`
+  padding-top: 100px;
+  width: 300px;
+  height: 300px;
 `;
 
 export default function Header() {
   return (
-    <MainNav>
-      <MainLink>
+    <>
+      <MainNav>
         <Link to="/">
-          YenTopper
+          <Logo src={LogoImage} alt="YenTopper" />
         </Link>
-      </MainLink>
-    </MainNav>
+      </MainNav>
+    </>
   );
 }
