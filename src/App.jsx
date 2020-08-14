@@ -1,9 +1,9 @@
 import React from 'react';
 
-import AppLayout from './AppLayout';
+import AppLayoutContainer from './AppLayoutContainer';
 
 export default function App() {
   return (
-    <AppLayout />
+    <AppLayoutContainer />
   );
 }
