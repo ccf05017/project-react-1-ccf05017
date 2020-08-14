@@ -22,11 +22,10 @@ const categories = [
   { id: 4, name: '결혼' },
 ];
 
-Scenario('항목별 제목을 볼 수 있다.', (I) => {
+Scenario('상점 로고를 볼 수 있다.', (I) => {
   I.amOnPage('/');
 
-  I.see('YenTopper');
-  I.see('상품');
+  I.seeAttributesOnElements('img', { alt: 'YenTopper' });
 });
 
 Scenario('카테고리 목록을 볼 수 있다.', (I) => {
