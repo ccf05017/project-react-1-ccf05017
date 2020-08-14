@@ -5,13 +5,13 @@ import {
   Route,
 } from 'react-router-dom';
 
-import HomepageContainer from './HomepageContainer';
+import ProductListContainer from './ProductListContainer';
 import ProductDetailContainer from './ProductDetailContainer';
 
 export default function ContentPage() {
   return (
     <Switch>
-      <Route exact path="/" component={HomepageContainer} />
+      <Route exact path="/" component={ProductListContainer} />
       <Route path="/products/:id" component={ProductDetailContainer} />
     </Switch>
   );

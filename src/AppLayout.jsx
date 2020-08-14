@@ -2,8 +2,9 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import HeaderLogo from './HeaderLogo';
+import CategoryListContainer from './CategoryListContainer';
 import ContentPage from './ContentPage';
+import HeaderLogo from './HeaderLogo';
 
 const GridContainer = styled('div')`
   display: grid;
@@ -37,7 +38,9 @@ export default function AppLayout() {
       <Header>
         <HeaderLogo />
       </Header>
-      <NavBar />
+      <NavBar>
+        <CategoryListContainer />
+      </NavBar>
       <Contents>
         <ContentPage />
       </Contents>
