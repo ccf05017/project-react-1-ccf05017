@@ -14,7 +14,7 @@ import categoriesFixture, { selectedCategoryFixture } from '../fixtures/categori
 jest.mock('react-redux');
 jest.mock('./assets');
 
-describe('RoutePage', () => {
+describe('AppLayout', () => {
   const storeTitle = 'YenTopper';
   const productTitle = '상품';
   const productDetailTitle = '상품 상세';
@@ -49,7 +49,7 @@ describe('RoutePage', () => {
       ));
 
       expect(getByAltText(storeTitle)).not.toBeNull();
-      expect(container).toHaveTextContent(productTitle);
+      expect(container).toHaveTextContent(productsFixture[0].title);
     });
   });
 
