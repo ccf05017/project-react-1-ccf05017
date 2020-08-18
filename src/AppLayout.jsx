@@ -30,10 +30,10 @@ const Contents = styled('div')`
 `;
 
 const ContentsLayout = styled('div')`
-  padding-top: 10px;
   max-width: 1000px;
   height: 100%;
   margin: 0 auto;
+  padding: 1rem 1rem;
 `;
 
 export default function AppLayout() {
