@@ -4,26 +4,23 @@ import styled from '@emotion/styled';
 
 import ProductItemContainer from './ProductItemContainer';
 
-const ProductsContainer = styled('div')`
-  max-width: 1000px;
-  height: 100%;
-  margin: 0 auto;
-  padding: 0 14px;
+const ProductsLayout = styled('ul')`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, auto));
+  column-gap: 1%;
 `;
 
 export default function ProductList({ products }) {
   return (
     <>
-      <ProductsContainer>
-        <ul>
-          {products.map((product) => (
-            <ProductItemContainer
-              key={product.id}
-              product={product}
-            />
-          ))}
-        </ul>
-      </ProductsContainer>
+      <ProductsLayout>
+        {products.map((product) => (
+          <ProductItemContainer
+            key={product.id}
+            product={product}
+          />
+        ))}
+      </ProductsLayout>
     </>
   );
 }

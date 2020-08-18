@@ -16,7 +16,6 @@ jest.mock('./assets');
 
 describe('AppLayout', () => {
   const storeTitle = 'YenTopper';
-  const productTitle = '상품';
   const productDetailTitle = '상품 상세';
 
   const dispatch = jest.fn();

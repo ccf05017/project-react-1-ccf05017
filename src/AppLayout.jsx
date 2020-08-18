@@ -29,6 +29,13 @@ const Contents = styled('div')`
   height: 100%;
 `;
 
+const ContentsLayout = styled('div')`
+  padding-top: 10px;
+  max-width: 1000px;
+  height: 100%;
+  margin: 0 auto;
+`;
+
 export default function AppLayout() {
   return (
     <GridContainer>
@@ -39,7 +46,9 @@ export default function AppLayout() {
         <CategoryListContainer />
       </NavBar>
       <Contents>
-        <ContentPage />
+        <ContentsLayout>
+          <ContentPage />
+        </ContentsLayout>
       </Contents>
     </GridContainer>
   );
