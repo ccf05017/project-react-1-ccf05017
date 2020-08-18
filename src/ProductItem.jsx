@@ -17,19 +17,21 @@ const ProductImage = styled('figure')`
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-image: url(${LogoImage});
+  background-image: url(${(props) => props.image});
 
   & > img {
     display: none;
   }
 `;
 
+const imageServer = 'https://3.34.86.117:8000/images/';
+
 export default function ProductItem({ product, onClick }) {
   return (
     <ProductItemLayout>
       <a href="" onClick={onClick}>
-        <ProductImage>
-          <img src={LogoImage} alt="상품사진" />
+        <ProductImage image={`${imageServer}${product.img}`}>
+          <img src={`${imageServer}${product.img}`} alt="상품사진" />
         </ProductImage>
         <p>{`상품명: ${product.title}`}</p>
         <p>{`가격: ${product.price}원`}</p>
