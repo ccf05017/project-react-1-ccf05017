@@ -13,6 +13,7 @@ jest.mock('react-router-dom', () => ({
     return { push: mockPush };
   },
 }));
+jest.mock('./assets/index');
 
 describe('ProductItemContainer', () => {
   function renderProductItemContainer() {

@@ -6,6 +6,8 @@ import ProductItem from './ProductItem';
 
 import { productFixture } from '../fixtures/products';
 
+jest.mock('./assets/index');
+
 describe('ProductItem', () => {
   const handleClick = jest.fn();
 

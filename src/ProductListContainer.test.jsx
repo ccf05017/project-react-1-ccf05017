@@ -13,6 +13,7 @@ import {
 } from '../fixtures/categories';
 
 jest.mock('react-redux');
+jest.mock('./assets/index');
 
 describe('ProductListContainer', () => {
   function renderProductListContainer() {
