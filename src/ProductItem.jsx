@@ -31,8 +31,8 @@ export default function ProductItem({ product, onClick }) {
         <ProductImage>
           <img src={LogoImage} alt="상품사진" />
         </ProductImage>
-        <p>{product.title}</p>
-        <p>{product.price}</p>
+        <p>{`상품명: ${product.title}`}</p>
+        <p>{`가격: ${product.price}원`}</p>
       </a>
     </ProductItemLayout>
   );
