@@ -6,7 +6,6 @@ import OrderFormContainer from './OrderFormContainer';
 const ProductDetailLayout = styled('div')`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
 `;
 
 const ProductDetailImage = styled('figure')`
@@ -34,6 +33,11 @@ const ProductDetailTitle = styled('h2')`
   padding-bottom: 1rem;
 `;
 
+const ProductDetailDescription = styled('div')`
+  font-size: 1.4rem;
+  padding-left: 1rem;
+`;
+
 export default function ProductDetail({ product }) {
   const imageServer = 'https://3.34.86.117:8000/images/';
 
@@ -44,7 +48,7 @@ export default function ProductDetail({ product }) {
         <ProductDetailImage image={`${imageServer}${product.detailImgs[0]}`}>
           <img src={`${imageServer}${product.detailImgs[0]}`} alt="birthday_product_detail" />
         </ProductDetailImage>
-        <div>
+        <ProductDetailDescription>
           <p>
             상품명:
             {' '}
@@ -57,7 +61,7 @@ export default function ProductDetail({ product }) {
             {' '}
             원
           </p>
-        </div>
+        </ProductDetailDescription>
       </ProductDetailLayout>
       <OrderFormContainer />
     </>
