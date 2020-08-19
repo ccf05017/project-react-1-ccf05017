@@ -3,6 +3,10 @@ import React from 'react';
 import styled from '@emotion/styled';
 import OrderFormContainer from './OrderFormContainer';
 
+const ProductDetailLayout = styled('div')`
+  display: flex;
+`;
+
 const ProductDetailImage = styled('figure')`
   padding-bottom: 100%;
   background-color: black;
@@ -32,20 +36,22 @@ export default function ProductDetail({ product }) {
   return (
     <>
       <h2>상품 상세</h2>
-      <ProductDetailImage image={`${imageServer}${product.detailImgs[0]}`} />
-      <p>
-        상품명:
-        {' '}
-        {product.title}
-      </p>
-      <p>
-        가격:
-        {' '}
-        {product.price}
-        {' '}
-        원
-      </p>
-      <OrderFormContainer />
+      <ProductDetailLayout>
+        <ProductDetailImage image={`${imageServer}${product.detailImgs[0]}`} />
+        <p>
+          상품명:
+          {' '}
+          {product.title}
+        </p>
+        <p>
+          가격:
+          {' '}
+          {product.price}
+          {' '}
+          원
+        </p>
+        <OrderFormContainer />
+      </ProductDetailLayout>
     </>
   );
 }
