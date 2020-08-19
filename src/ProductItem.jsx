@@ -2,8 +2,6 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import { LogoImage } from './assets/index';
-
 const ProductItemLayout = styled('li')`
   display: flex;
   flex-direction: column;
