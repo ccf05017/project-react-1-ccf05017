@@ -1,9 +1,11 @@
 import React from 'react';
 
 import styled from '@emotion/styled';
-import OrderFormContainer from './OrderFormContainer';
 
-const ProductDetailLayout = styled('div')`
+import OrderFormContainer from './OrderFormContainer';
+import ProductDetailDescription from './ProductDetailDescription';
+
+const ProductDetailBody = styled('div')`
   display: flex;
   flex-wrap: wrap;
 `;
@@ -33,36 +35,22 @@ const ProductDetailTitle = styled('h2')`
   padding-bottom: 1rem;
 `;
 
-const ProductDetailDescription = styled('div')`
-  font-size: 1.4rem;
-  padding-left: 1rem;
-`;
-
 export default function ProductDetail({ product }) {
   const imageServer = 'https://3.34.86.117:8000/images/';
 
   return (
     <>
-      <ProductDetailTitle>상품 상세</ProductDetailTitle>
-      <ProductDetailLayout>
+      <ProductDetailTitle>
+        상품 상세
+      </ProductDetailTitle>
+
+      <ProductDetailBody>
         <ProductDetailImage image={`${imageServer}${product.detailImgs[0]}`}>
           <img src={`${imageServer}${product.detailImgs[0]}`} alt="birthday_product_detail" />
         </ProductDetailImage>
-        <ProductDetailDescription>
-          <p>
-            상품명:
-            {' '}
-            {product.title}
-          </p>
-          <p>
-            가격:
-            {' '}
-            {product.price}
-            {' '}
-            원
-          </p>
-        </ProductDetailDescription>
-      </ProductDetailLayout>
+        <ProductDetailDescription product={product} />
+      </ProductDetailBody>
+
       <OrderFormContainer />
     </>
   );
