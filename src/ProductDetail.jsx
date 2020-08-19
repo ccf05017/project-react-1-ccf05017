@@ -2,6 +2,8 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
+import IMG_API_SERVER from '../services/imageApi';
+
 import OrderFormContainer from './OrderFormContainer';
 import ProductDetailDescription from './ProductDetailDescription';
 
@@ -36,8 +38,6 @@ const ProductDetailTitle = styled('h2')`
 `;
 
 export default function ProductDetail({ product }) {
-  const imageServer = 'https://3.34.86.117:8000/images/';
-
   return (
     <>
       <ProductDetailTitle>
@@ -45,8 +45,8 @@ export default function ProductDetail({ product }) {
       </ProductDetailTitle>
 
       <ProductDetailBody>
-        <ProductDetailImage image={`${imageServer}${product.detailImgs[0]}`}>
-          <img src={`${imageServer}${product.detailImgs[0]}`} alt="birthday_product_detail" />
+        <ProductDetailImage image={`${IMG_API_SERVER}/${product.detailImgs[0]}`}>
+          <img src={`${IMG_API_SERVER}/${product.detailImgs[0]}`} alt="birthday_product_detail" />
         </ProductDetailImage>
         <ProductDetailDescription product={product} />
       </ProductDetailBody>

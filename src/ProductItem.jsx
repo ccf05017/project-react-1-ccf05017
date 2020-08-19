@@ -2,6 +2,8 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
+import IMG_API_SERVER from '../services/imageApi';
+
 const ProductItemLayout = styled('li')`
   display: flex;
   flex-direction: column;
@@ -22,14 +24,12 @@ const ProductImage = styled('figure')`
   }
 `;
 
-const imageServer = 'https://3.34.86.117:8000/images/';
-
 export default function ProductItem({ product, onClick }) {
   return (
     <ProductItemLayout>
       <a href="" onClick={onClick}>
-        <ProductImage image={`${imageServer}${product.img}`}>
-          <img src={`${imageServer}${product.img}`} alt="상품사진" />
+        <ProductImage image={`${IMG_API_SERVER}/${product.img}`}>
+          <img src={`${IMG_API_SERVER}/${product.img}`} alt="상품사진" />
         </ProductImage>
         <p>{`상품명: ${product.title}`}</p>
         <p>{`가격: ${product.price}원`}</p>
