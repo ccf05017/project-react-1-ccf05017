@@ -4,13 +4,22 @@ import styled from '@emotion/styled';
 import OrderFormContainer from './OrderFormContainer';
 
 const ProductDetailImage = styled('figure')`
-  height: 0;
   padding-bottom: 100%;
   background-color: black;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-image: url(${(props) => props.image});
+  max-width: 500px;
+  max-height: 500px;
+
+  @media (min-width: 768px) {
+    padding-bottom: 70%;
+  }
+
+  @media (min-width: 1024px) {
+    padding-bottom: 50%;
+  }
 
   & > img {
     display: none;
