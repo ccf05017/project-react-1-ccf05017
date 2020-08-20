@@ -84,6 +84,20 @@ const { actions, reducer } = createSlice({
         orderResult: null,
       };
     },
+
+    openOrderFormModal(state) {
+      return {
+        ...state,
+        orderFormModalOpen: true,
+      };
+    },
+
+    closeOrderFormModal(state) {
+      return {
+        ...state,
+        orderFormModalOpen: false,
+      };
+    },
   },
 });
 
@@ -96,6 +110,8 @@ export const {
   setOrderResult,
   clearOrderResult,
   clearOrderForm,
+  openOrderFormModal,
+  closeOrderFormModal,
 } = actions;
 
 export function loadInitialState() {

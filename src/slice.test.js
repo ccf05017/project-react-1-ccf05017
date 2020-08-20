@@ -14,6 +14,8 @@ import reducer, {
   clearOrderResult,
   orderProduct,
   clearOrderForm,
+  openOrderFormModal,
+  closeOrderFormModal,
 } from './slice';
 
 import categoriesFixture from '../fixtures/categories';
@@ -159,6 +161,26 @@ describe('reducer', () => {
     const state = reducer(initialState, clearOrderForm());
 
     expect(state.orderForm).toEqual(cleanedForm);
+  });
+
+  describe('openOrderFormModal', () => {
+    const initialState = {
+      orderFormModalOpen: false,
+    };
+
+    const state = reducer(initialState, openOrderFormModal());
+
+    expect(state.orderFormModalOpen).toBe(true);
+  });
+
+  describe('closeOrderFormModal', () => {
+    const initialState = {
+      orderFormModalOpen: true,
+    };
+
+    const state = reducer(initialState, closeOrderFormModal());
+
+    expect(state.orderFormModalOpen).toBe(false);
   });
 });
 
