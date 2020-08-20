@@ -23,6 +23,7 @@ const { actions, reducer } = createSlice({
     product: null,
     orderForm: initialOrderForm,
     orderResult: null,
+    orderFormModalOpen: false,
   },
   reducers: {
     setCategories(state, { payload: categories }) {

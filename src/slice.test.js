@@ -38,6 +38,7 @@ describe('reducer', () => {
         address: '',
       },
       orderResult: null,
+      orderFormModalOpen: false,
     };
 
     it('returns the initialStates', () => {
