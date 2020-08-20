@@ -57,12 +57,6 @@ export default function ProductDetail({ product, orderFormModalOpen }) {
       </ProductDetailBody>
 
       <OrderFormContainer />
-
-      <Modal
-        open={orderFormModalOpen}
-      >
-        <h2>주문서</h2>
-      </Modal>
     </>
   );
 }
