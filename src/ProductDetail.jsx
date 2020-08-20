@@ -2,6 +2,8 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
+import Modal from '@material-ui/core/Modal';
+
 import IMG_API_SERVER from '../services/imageApi';
 
 import OrderFormContainer from './OrderFormContainer';
@@ -37,7 +39,7 @@ const ProductDetailTitle = styled('h2')`
   padding-bottom: 1rem;
 `;
 
-export default function ProductDetail({ product }) {
+export default function ProductDetail({ product, orderFormModalOpen }) {
   return (
     <>
       <ProductDetailTitle>
@@ -46,12 +48,21 @@ export default function ProductDetail({ product }) {
 
       <ProductDetailBody>
         <ProductDetailImage image={`${IMG_API_SERVER}/${product.detailImgs[0]}`}>
-          <img src={`${IMG_API_SERVER}/${product.detailImgs[0]}`} alt="birthday_product_detail" />
+          <img
+            src={`${IMG_API_SERVER}/${product.detailImgs[0]}`}
+            alt="birthday_product_detail"
+          />
         </ProductDetailImage>
         <ProductDetailDescription product={product} />
       </ProductDetailBody>
 
       <OrderFormContainer />
+
+      <Modal
+        open={orderFormModalOpen}
+      >
+        <h2>주문서</h2>
+      </Modal>
     </>
   );
 }

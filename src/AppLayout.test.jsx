@@ -34,6 +34,7 @@ describe('AppLayout', () => {
         amount: 0,
         address: '',
       },
+      orderFormModalOpen: false,
     }));
 
     useDispatch.mockImplementation(() => dispatch);

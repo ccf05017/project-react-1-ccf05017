@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   clearOrderResult,
   loadProductDetail,
+  openOrderFormModal,
 } from './slice';
 
 import ProductDetail from './ProductDetail';
@@ -21,8 +22,9 @@ export default function ProductDetailContainer({ params }) {
     dispatch(loadProductDetail(id));
   }, []);
 
-  const { product } = useSelector((state) => ({
+  const { product, orderFormModalOpen } = useSelector((state) => ({
     product: state.product,
+    orderFormModalOpen: state.orderFormModalOpen,
   }));
 
   if (!product) {
@@ -32,6 +34,9 @@ export default function ProductDetailContainer({ params }) {
   }
 
   return (
-    <ProductDetail product={product} />
+    <ProductDetail
+      product={product}
+      orderFormModalOpen={orderFormModalOpen}
+    />
   );
 }
