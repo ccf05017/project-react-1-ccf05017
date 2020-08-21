@@ -22,6 +22,7 @@ export default function ProductDetailDescription({ product }) {
         {' '}
         원
       </p>
+      <button type="button">주문하기</button>
     </ProductDetailDescriptionLayout>
   );
 }

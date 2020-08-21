@@ -2,12 +2,10 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import Modal from '@material-ui/core/Modal';
-
 import IMG_API_SERVER from '../services/imageApi';
 
-import OrderFormContainer from './OrderFormContainer';
 import ProductDetailDescription from './ProductDetailDescription';
+import OrderFormModal from './OrderFormModal';
 
 const ProductDetailBody = styled('div')`
   display: flex;
@@ -55,8 +53,9 @@ export default function ProductDetail({ product, orderFormModalOpen }) {
         </ProductDetailImage>
         <ProductDetailDescription product={product} />
       </ProductDetailBody>
-
-      <OrderFormContainer />
+      <OrderFormModal
+        open={orderFormModalOpen}
+      />
     </>
   );
 }
