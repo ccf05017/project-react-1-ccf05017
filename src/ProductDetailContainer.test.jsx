@@ -1,8 +1,10 @@
 import React from 'react';
 
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 
 import { useDispatch, useSelector } from 'react-redux';
+
+import { openOrderFormModal } from './slice';
 
 import ProductDetailContainer from './ProductDetailContainer';
 
@@ -54,6 +56,15 @@ describe('ProductDetailContainer', () => {
       renderProductDetailContainer();
 
       expect(dispatch).toBeCalledTimes(2);
+    });
+
+    it('can open the order form modal', () => {
+      const { getByText } = renderProductDetailContainer();
+
+      expect(dispatch).toBeCalledTimes(2);
+      fireEvent.click(getByText('주문하기'));
+
+      expect(dispatch).toBeCalledTimes(3);
     });
   });
 

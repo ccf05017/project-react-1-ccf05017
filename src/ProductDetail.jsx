@@ -37,7 +37,9 @@ const ProductDetailTitle = styled('h2')`
   padding-bottom: 1rem;
 `;
 
-export default function ProductDetail({ product, orderFormModalOpen }) {
+export default function ProductDetail({
+  product, orderFormModalOpen, openModal, closeModal,
+}) {
   return (
     <>
       <ProductDetailTitle>
@@ -51,10 +53,15 @@ export default function ProductDetail({ product, orderFormModalOpen }) {
             alt="birthday_product_detail"
           />
         </ProductDetailImage>
-        <ProductDetailDescription product={product} />
+        <ProductDetailDescription
+          product={product}
+          openModal={openModal}
+        />
       </ProductDetailBody>
+
       <OrderFormModal
         open={orderFormModalOpen}
+        closeModal={closeModal}
       />
     </>
   );

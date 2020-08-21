@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function OrderFormModal({ open }) {
+export default function OrderFormModal({ open, closeModal }) {
   const classes = useStyles();
   const [modalStyle] = React.useState(getModalStyle);
 
@@ -48,6 +48,7 @@ export default function OrderFormModal({ open }) {
   return (
     <Modal
       open={open}
+      onClose={closeModal}
       aria-labelledby="simple-modal-title"
       aria-describedby="simple-modal-description"
     >

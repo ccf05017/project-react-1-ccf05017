@@ -8,6 +8,7 @@ import {
   clearOrderResult,
   loadProductDetail,
   openOrderFormModal,
+  closeOrderFormModal,
 } from './slice';
 
 import ProductDetail from './ProductDetail';
@@ -33,10 +34,20 @@ export default function ProductDetailContainer({ params }) {
     );
   }
 
+  function openModal() {
+    dispatch(openOrderFormModal());
+  }
+
+  function closeModal() {
+    dispatch(closeOrderFormModal());
+  }
+
   return (
     <ProductDetail
       product={product}
       orderFormModalOpen={orderFormModalOpen}
+      openModal={openModal}
+      closeModal={closeModal}
     />
   );
 }

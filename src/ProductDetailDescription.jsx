@@ -7,7 +7,7 @@ const ProductDetailDescriptionLayout = styled('div')`
   padding-left: 1rem;
 `;
 
-export default function ProductDetailDescription({ product }) {
+export default function ProductDetailDescription({ product, openModal }) {
   return (
     <ProductDetailDescriptionLayout>
       <p>
@@ -22,7 +22,9 @@ export default function ProductDetailDescription({ product }) {
         {' '}
         원
       </p>
-      <button type="button">주문하기</button>
+      <button type="button" onClick={openModal}>
+        주문하기
+      </button>
     </ProductDetailDescriptionLayout>
   );
 }
