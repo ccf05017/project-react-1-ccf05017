@@ -48,8 +48,8 @@ describe('ProductDetailContainer', () => {
       const { container } = renderProductDetailContainer();
 
       expect(container).toHaveTextContent(productDetailTitle);
-      expect(container).toHaveTextContent(`상품명: ${productFixture.title}`);
-      expect(container).toHaveTextContent(`가격: ${productFixture.price}`);
+      expect(container).toHaveTextContent(`${productFixture.title}`);
+      expect(container).toHaveTextContent(`${productFixture.price}`);
     });
 
     it('loads the product detail and clear order result', () => {

@@ -21,8 +21,10 @@ const ProductDetailImage = styled('figure')`
   flex-shrink: 0;
   width: 100%;
   padding-bottom: 100%;
+  min-width: 400px;
 
   @media(min-width: 768px) {
+    min-width: 400px;
     width: 400px;
     height: 400px;
     padding-bottom: 0;
