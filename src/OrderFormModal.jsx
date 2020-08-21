@@ -24,7 +24,7 @@ function getModalStyle() {
 const useStyles = makeStyles((theme) => ({
   paper: {
     position: 'absolute',
-    width: 400,
+    width: 300,
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
@@ -38,8 +38,8 @@ export default function OrderFormModal({ open, closeModal }) {
 
   const body = (
     <div style={modalStyle} className={classes.paper}>
-      <h2 id="simple-modal-title">Text in a modal</h2>
-      <div id="simple-modal-description">
+      <h2 id="orderform-modal-title">주문서</h2>
+      <div id="orderfrom-modal-description">
         <OrderFormContainer />
       </div>
     </div>
@@ -49,8 +49,8 @@ export default function OrderFormModal({ open, closeModal }) {
     <Modal
       open={open}
       onClose={closeModal}
-      aria-labelledby="simple-modal-title"
-      aria-describedby="simple-modal-description"
+      aria-labelledby="orderform-modal-title"
+      aria-describedby="orderfrom-modal-description"
     >
       {body}
     </Modal>
