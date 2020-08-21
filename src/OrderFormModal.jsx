@@ -6,22 +6,12 @@ import Modal from '@material-ui/core/Modal';
 
 import OrderFormContainer from './OrderFormContainer';
 
-function rand() {
-  return Math.round(Math.random() * 20) - 10;
-}
-
-function getModalStyle() {
-  const top = 50 + rand();
-  const left = 50 + rand();
-
-  return {
-    top: `${top}%`,
-    left: `${left}%`,
-    transform: `translate(-${top}%, -${left}%)`,
-  };
-}
-
 const useStyles = makeStyles((theme) => ({
+  modal: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   paper: {
     position: 'absolute',
     width: 300,
@@ -34,10 +24,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function OrderFormModal({ open, closeModal }) {
   const classes = useStyles();
-  const [modalStyle] = React.useState(getModalStyle);
 
   const body = (
-    <div style={modalStyle} className={classes.paper}>
+    <div className={classes.paper}>
       <h2 id="orderform-modal-title">주문서</h2>
       <div id="orderfrom-modal-description">
         <OrderFormContainer />
@@ -49,6 +38,7 @@ export default function OrderFormModal({ open, closeModal }) {
     <Modal
       open={open}
       onClose={closeModal}
+      className={classes.modal}
       aria-labelledby="orderform-modal-title"
       aria-describedby="orderfrom-modal-description"
     >

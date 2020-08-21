@@ -1,8 +1,15 @@
 import React from 'react';
 
+import styled from '@emotion/styled';
+
 import InputField from './InputField';
 
 import OrderResultContainer from './OrderResultContainer';
+
+const OrderFromLayout = styled('div')`
+  display: flex;
+  flex-direction: column;
+`;
 
 export default function OrderForm({
   formValues, orderResult, handleChange, handleClick,
@@ -12,7 +19,7 @@ export default function OrderForm({
   } = formValues;
 
   return (
-    <>
+    <OrderFromLayout>
       <InputField
         label="주문자 이름"
         name="username"
@@ -46,6 +53,6 @@ export default function OrderForm({
       </button>
 
       {orderResult && <OrderResultContainer />}
-    </>
+    </OrderFromLayout>
   );
 }
