@@ -24,7 +24,7 @@ export default function HeaderLogo() {
     <>
       <MainNav>
         <Link to="/">
-          <Logo src={`${LogoImage}`} alt="YenTopper" />
+          <Logo src={`${process.env.BASE_IMG}${LogoImage}`} alt="YenTopper" />
         </Link>
       </MainNav>
     </>
