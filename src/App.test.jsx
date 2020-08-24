@@ -15,6 +15,7 @@ import productsFixture from '../fixtures/products';
 import App from './App';
 
 jest.mock('react-redux');
+jest.mock('./assets');
 
 describe('App', () => {
   const dispatch = jest.fn();
@@ -32,15 +33,12 @@ describe('App', () => {
   });
 
   it('renders the HomePage', () => {
-    const categoryHeader = '카테고리';
-
-    const { container } = render((
+    render((
       <MemoryRouter>
         <App />
       </MemoryRouter>
     ));
 
     expect(dispatch).toBeCalled();
-    expect(container).toHaveTextContent(categoryHeader);
   });
 });

@@ -27,12 +27,12 @@ describe('CategoryListContainer', () => {
   });
 
   it('renders the CategoryListContainer', () => {
-    const categoryTitle = '카테고리';
+    const categoryComponent = categoriesFixture[0].name;
 
     const { container } = render((
       <CategoryListContainer />
     ));
 
-    expect(container).toHaveTextContent(categoryTitle);
+    expect(container).toHaveTextContent(categoryComponent);
   });
 });

@@ -22,12 +22,15 @@ describe('ProductDetail', () => {
     }));
   });
 
+  const modalOpen = false;
+
   it('renders the product detail and order form', () => {
     const { container } = render((
-      <ProductDetail product={productFixture} />
+      <ProductDetail product={productFixture} orderFormModalOpen={modalOpen} />
     ));
 
     expect(container).toHaveTextContent('상품 상세');
     expect(container).toHaveTextContent('주문하기');
+    expect(container).not.toHaveTextContent('주문서');
   });
 });

@@ -1,9 +1,9 @@
 import React from 'react';
 
-import RoutePage from './RoutePage';
+import AppLayoutContainer from './AppLayoutContainer';
 
 export default function App() {
   return (
-    <RoutePage />
+    <AppLayoutContainer />
   );
 }

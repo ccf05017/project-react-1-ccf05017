@@ -1,19 +1,38 @@
 import React from 'react';
 
+import styled from '@emotion/styled';
+
 import CategoryItemContainer from './CategoryItemContainer';
+
+const MenuNavigation = styled('nav')`
+  width: 100%;
+  height: 44px;
+  padding: 0 1rem;
+`;
+
+const MenuNavigationComponents = styled('div')`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  max-width: 1000px;
+  height: 100%;
+  margin: 0 auto;
+  border-bottom: 1px solid #ddd;
+`;
 
 export default function CategoryList({ categories }) {
   return (
     <>
-      <h2>카테고리</h2>
-      <ul>
-        {categories.map((category) => (
-          <CategoryItemContainer
-            key={category.id}
-            category={category}
-          />
-        ))}
-      </ul>
+      <MenuNavigation>
+        <MenuNavigationComponents>
+          {categories.map((category) => (
+            <CategoryItemContainer
+              key={category.id}
+              category={category}
+            />
+          ))}
+        </MenuNavigationComponents>
+      </MenuNavigation>
     </>
   );
 }

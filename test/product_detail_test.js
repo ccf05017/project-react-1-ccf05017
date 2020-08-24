@@ -6,15 +6,16 @@ Scenario('상품 상세 정보를 확인할 수 있다.', (I) => {
   I.amOnPage(`/products/${product.index}`);
 
   I.see('상품 상세');
-  I.see(`상품명: ${product.title}`);
-  I.see(`가격: ${product.price}`);
+  I.see(`[YenTopper] ${product.title}`);
+  I.see(`${product.price}원`);
 });
 
-Scenario('주문 폼을 확인할 수 있다.', (I) => {
+Scenario('주문서 모달창을 볼 수 있다.', (I) => {
   I.amOnPage(`/products/${product.index}`);
 
-  I.see('주문자 이름');
-  I.see('주문자 연락처');
-  I.see('주문수량');
-  I.see('배송지');
+  I.amOnPage('/products/1');
+
+  I.click('주문하기');
+
+  I.see('주문서');
 });

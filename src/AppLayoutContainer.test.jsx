@@ -4,7 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { render } from '@testing-library/react';
 
-import HomepageContainer from './HomepageContainer';
+import { MemoryRouter } from 'react-router-dom';
+
+import AppLayoutContainer from './AppLayoutContainer';
 
 import categoriesFixture, {
   selectedCategoryFixture,
@@ -12,8 +14,9 @@ import categoriesFixture, {
 import productsFixture from '../fixtures/products';
 
 jest.mock('react-redux');
+jest.mock('./assets');
 
-describe('HomepageContainer', () => {
+describe('AppLayoutContainer', () => {
   const dispatch = jest.fn();
 
   beforeEach(() => {
@@ -30,7 +33,9 @@ describe('HomepageContainer', () => {
 
   it('loads initial data', () => {
     render((
-      <HomepageContainer />
+      <MemoryRouter>
+        <AppLayoutContainer />
+      </MemoryRouter>
     ));
 
     expect(dispatch).toBeCalled();

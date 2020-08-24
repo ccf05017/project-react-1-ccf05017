@@ -1,8 +1,10 @@
 import React from 'react';
 
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 
 import { useDispatch, useSelector } from 'react-redux';
+
+import { openOrderFormModal } from './slice';
 
 import ProductDetailContainer from './ProductDetailContainer';
 
@@ -25,6 +27,7 @@ describe('ProductDetailContainer', () => {
         amount: 0,
         address: '',
       },
+      orderFormModalOpen: false,
     }));
 
     useDispatch.mockImplementation(() => dispatch);
@@ -45,14 +48,23 @@ describe('ProductDetailContainer', () => {
       const { container } = renderProductDetailContainer();
 
       expect(container).toHaveTextContent(productDetailTitle);
-      expect(container).toHaveTextContent(`상품명: ${productFixture.title}`);
-      expect(container).toHaveTextContent(`가격: ${productFixture.price}`);
+      expect(container).toHaveTextContent(`${productFixture.title}`);
+      expect(container).toHaveTextContent(`${productFixture.price}`);
     });
 
     it('loads the product detail and clear order result', () => {
       renderProductDetailContainer();
 
       expect(dispatch).toBeCalledTimes(2);
+    });
+
+    it('can open the order form modal', () => {
+      const { getByText } = renderProductDetailContainer();
+
+      expect(dispatch).toBeCalledTimes(2);
+      fireEvent.click(getByText('주문하기'));
+
+      expect(dispatch).toBeCalledTimes(4);
     });
   });
 

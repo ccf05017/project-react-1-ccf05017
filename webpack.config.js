@@ -16,6 +16,14 @@ module.exports = (env, argv) => ({
         exclude: /node_modules/,
         use: 'babel-loader',
       },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(png|svg|jpg|gif|mp4)$/i,
+        use: 'file-loader',
+      },
     ],
   },
   resolve: {

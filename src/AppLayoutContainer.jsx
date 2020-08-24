@@ -4,14 +4,14 @@ import { useDispatch } from 'react-redux';
 
 import { loadInitialState } from './slice';
 
-import Homepage from './Homepage';
+import AppLayout from './AppLayout';
 
-export default function HomepageContainer() {
+export default function AppLayoutContainer() {
   const dispatch = useDispatch();
 
   dispatch(loadInitialState());
 
   return (
-    <Homepage />
+    <AppLayout />
   );
 }

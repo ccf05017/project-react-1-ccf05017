@@ -6,17 +6,16 @@ import { MemoryRouter } from 'react-router-dom';
 
 import { render } from '@testing-library/react';
 
-import RoutePage from './RoutePage';
+import AppLayout from './AppLayout';
 
 import productsFixture, { productFixture } from '../fixtures/products';
 import categoriesFixture, { selectedCategoryFixture } from '../fixtures/categories';
 
 jest.mock('react-redux');
+jest.mock('./assets');
 
-describe('RoutePage', () => {
+describe('AppLayout', () => {
   const storeTitle = 'YenTopper';
-  const categoryTitle = '카테고리';
-  const productTitle = '상품';
   const productDetailTitle = '상품 상세';
 
   const dispatch = jest.fn();
@@ -35,6 +34,7 @@ describe('RoutePage', () => {
         amount: 0,
         address: '',
       },
+      orderFormModalOpen: false,
     }));
 
     useDispatch.mockImplementation(() => dispatch);
@@ -42,15 +42,14 @@ describe('RoutePage', () => {
 
   context('with path /', () => {
     it('renders the homepage', () => {
-      const { container } = render((
+      const { container, getByAltText } = render((
         <MemoryRouter initialEntries={['/']}>
-          <RoutePage />
+          <AppLayout />
         </MemoryRouter>
       ));
 
-      expect(container).toHaveTextContent(storeTitle);
-      expect(container).toHaveTextContent(categoryTitle);
-      expect(container).toHaveTextContent(productTitle);
+      expect(getByAltText(storeTitle)).not.toBeNull();
+      expect(container).toHaveTextContent(productsFixture[0].title);
     });
   });
 
@@ -58,7 +57,7 @@ describe('RoutePage', () => {
     it('renders the product detail page', () => {
       const { container } = render((
         <MemoryRouter initialEntries={['/products/1']}>
-          <RoutePage />
+          <AppLayout />
         </MemoryRouter>
       ));
 

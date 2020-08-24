@@ -1,24 +1,18 @@
 Feature('CategoryList');
 
 const categories = [
-  { index: 1, name: '생일' },
   { index: 2, name: '육아' },
   { index: 3, name: '여행' },
-  { index: 4, name: '결혼' },
 ];
 
-Scenario('카테고리 제목을 볼 수 있다.', (I) => {
-  I.amOnPage('/');
-
-  I.see('카테고리');
-});
-
-Scenario('원하는 카테고리에 마우스를 갖다 대면, (O) 표기가 된다.', (I) => {
+Scenario('원하는 카테고리를 클릭하면, 검은 배경으로 바뀐다.', (I) => {
   I.amOnPage('/');
 
   categories.forEach((category) => {
-    I.moveCursorTo(locate('ul li').at(category.index));
+    const categoryElement = locate('.category-item').at(category.index);
 
-    I.see(`${category.name}(O)`);
+    I.click(categoryElement);
+
+    I.seeCssPropertiesOnElements(categoryElement, { 'background-color': 'rgb(29, 29, 31)' });
   });
 });

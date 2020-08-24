@@ -44,7 +44,7 @@ describe('OrderFormContainer', () => {
 
       orderForm.forEach((input) => expect(getByLabelText(input)).not.toBeNull());
 
-      expect(getByText('주문하기')).not.toBeNull();
+      expect(getByText('주문')).not.toBeNull();
 
       expect(getByLabelText('주문자 이름').value).not.toBe(username);
     });
@@ -58,7 +58,7 @@ describe('OrderFormContainer', () => {
 
       orderForm.forEach((input) => expect(getByLabelText(input)).not.toBeNull());
 
-      expect(getByText('주문하기')).not.toBeNull();
+      expect(getByText('주문')).not.toBeNull();
 
       expect(getByLabelText('주문자 이름').value).toBe(username);
     });
@@ -107,7 +107,7 @@ describe('OrderFormContainer', () => {
   });
 
   it('listens the click button', () => {
-    const orderButton = '주문하기';
+    const orderButton = '주문';
 
     const { getByText } = renderOrderFormContainer();
 

@@ -9,6 +9,8 @@ import {
 
 import store from './store';
 
+import './assets/css/default.css';
+
 import App from './App';
 
 ReactDOM.render(

@@ -13,6 +13,7 @@ jest.mock('react-router-dom', () => ({
     return { push: mockPush };
   },
 }));
+jest.mock('./assets/index');
 
 describe('ProductItemContainer', () => {
   function renderProductItemContainer() {
@@ -31,7 +32,7 @@ describe('ProductItemContainer', () => {
   it('listens the click event', () => {
     const { getByText } = renderProductItemContainer();
 
-    fireEvent.click(getByText(productFixture.title));
+    fireEvent.click(getByText(`상품명: ${productFixture.title}`));
 
     expect(mockPush).toBeCalledWith(`/products/${productFixture.id}`);
   });
