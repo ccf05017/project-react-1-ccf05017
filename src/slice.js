@@ -98,6 +98,13 @@ const { actions, reducer } = createSlice({
         orderFormModalOpen: false,
       };
     },
+
+    clearCategoryFilter(state) {
+      return {
+        ...state,
+        selectedCategory: null,
+      };
+    },
   },
 });
 
@@ -112,6 +119,7 @@ export const {
   clearOrderForm,
   openOrderFormModal,
   closeOrderFormModal,
+  clearCategoryFilter,
 } = actions;
 
 export function loadInitialState() {

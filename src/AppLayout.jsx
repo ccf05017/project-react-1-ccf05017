@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 
 import CategoryListContainer from './CategoryListContainer';
 import ContentPage from './ContentPage';
-import HeaderLogo from './HeaderLogo';
+import HeaderLogoContainer from './HeaderLogoContainer';
 
 const GridContainer = styled('div')`
   display: grid;
@@ -40,7 +40,7 @@ export default function AppLayout() {
   return (
     <GridContainer>
       <Header>
-        <HeaderLogo />
+        <HeaderLogoContainer />
       </Header>
       <NavBar>
         <CategoryListContainer />

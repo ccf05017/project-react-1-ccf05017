@@ -18,6 +18,8 @@ export default function ProductListContainer() {
   }
 
   return (
-    <ProductList products={filterProductByCategory()} />
+    <ProductList
+      products={filterProductByCategory()}
+    />
   );
 }

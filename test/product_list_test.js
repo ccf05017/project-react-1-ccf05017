@@ -39,6 +39,22 @@ Scenario('카테고리 별로 상품 목록을 확인 할 수 있다.', (I) => {
   });
 });
 
+Scenario('로고를 클릭하면 전체 상품을 볼 수 있다.', (I) => {
+  const targetIndex = 0;
+  const categoryElement = locate('.category-item').at(categories[targetIndex].index);
+  const logoImage = locate('img').withAttr({ alt: 'YenTopper' });
+
+  I.amOnPage('/');
+
+  I.click(categoryElement);
+  I.see(products[targetIndex].title);
+  I.dontSee(products[targetIndex + 1].title);
+
+  I.click(logoImage);
+  I.see(products[targetIndex].title);
+  I.see(products[targetIndex + 1].title);
+});
+
 Scenario('상품 상세 페이지로 이동할 수 있다.', async (I) => {
   I.amOnPage('/');
 

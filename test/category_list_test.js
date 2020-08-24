@@ -1,8 +1,10 @@
 Feature('CategoryList');
 
 const categories = [
+  { index: 1, name: '생일' },
   { index: 2, name: '육아' },
   { index: 3, name: '여행' },
+  { index: 4, name: '결혼' },
 ];
 
 Scenario('원하는 카테고리를 클릭하면, 검은 배경으로 바뀐다.', (I) => {

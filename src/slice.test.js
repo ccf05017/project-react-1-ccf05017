@@ -16,6 +16,7 @@ import reducer, {
   clearOrderForm,
   openOrderFormModal,
   closeOrderFormModal,
+  clearCategoryFilter,
 } from './slice';
 
 import categoriesFixture from '../fixtures/categories';
@@ -181,6 +182,16 @@ describe('reducer', () => {
     const state = reducer(initialState, closeOrderFormModal());
 
     expect(state.orderFormModalOpen).toBe(false);
+  });
+
+  describe('clearCategoryFilter', () => {
+    const initialState = {
+      selectedCategory: categoriesFixture[0],
+    };
+
+    const state = reducer(initialState, clearCategoryFilter());
+
+    expect(state.selectedCategory).toBe(null);
   });
 });
 

@@ -19,11 +19,11 @@ const Logo = styled('img')`
   height: 200px;
 `;
 
-export default function HeaderLogo() {
+export default function HeaderLogo({ onClick }) {
   return (
     <>
       <MainNav>
-        <Link to="/">
+        <Link to="/" onClick={onClick}>
           <Logo src={LogoImage} alt="YenTopper" />
         </Link>
       </MainNav>
