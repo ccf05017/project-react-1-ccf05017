@@ -7,7 +7,7 @@ module.exports = (env, argv) => ({
   output: {
     filename: 'bundle-[hash].js',
     path: path.resolve('./dist'),
-    publicPath: argv.mode === 'production' ? '/project-react-1-ccf05017' : '/',
+    publicPath: argv.mode === 'production' ? '/project-react-1-ccf05017/' : '/',
   },
   module: {
     rules: [
