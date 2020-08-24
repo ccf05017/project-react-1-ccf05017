@@ -35,6 +35,7 @@ export default function ProductDetailContainer({ params }) {
   }
 
   function openModal() {
+    dispatch(clearOrderResult());
     dispatch(openOrderFormModal());
   }
 

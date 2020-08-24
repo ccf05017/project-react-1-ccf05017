@@ -49,7 +49,7 @@ export default function OrderForm({
       />
 
       <button type="button" onClick={handleClick}>
-        주문하기
+        주문
       </button>
 
       {orderResult && <OrderResultContainer />}

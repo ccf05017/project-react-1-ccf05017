@@ -64,7 +64,7 @@ describe('ProductDetailContainer', () => {
       expect(dispatch).toBeCalledTimes(2);
       fireEvent.click(getByText('주문하기'));
 
-      expect(dispatch).toBeCalledTimes(3);
+      expect(dispatch).toBeCalledTimes(4);
     });
   });
 
